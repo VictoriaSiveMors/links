@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VSM</title>
+
+    <link rel="icon" href="Images/vsm.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="Images/vsm.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@700;900&family=Rajdhani:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="Styles/index.css">
+
+    <meta name="theme-color" content="#0b0c14">
+    <meta name="description" content="VSM — content collective.">
+
+    <meta property="og:title" content="VSM">
+    <meta property="og:description" content="VSM — content collective.">
+    <meta property="og:type" content="website">
+    <!-- TODO: replace with real og:image once hosted -->
+    <meta property="og:image" content="https://victoriasivemors.github.io/links/Images/vsm.png">
+</head>
+
+<body>
+
+    <div id="cursor"></div>
+    <div id="cursorRing"></div>
+
+    <canvas id="bg"></canvas>
+    <div class="vignette"></div>
+
+    <div class="bracket tl"><svg viewBox="0 0 80 80">
+            <path d="M2,80 L2,2 L80,2" fill="none" stroke="url(#cg)" stroke-width="2" />
+            <defs>
+                <linearGradient id="cg" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#4da6ff" stop-opacity="0.55" />
+                    <stop offset="100%" stop-color="#a78bfa" stop-opacity="0.55" />
+                </linearGradient>
+            </defs>
+        </svg></div>
+    <div class="bracket tr"><svg viewBox="0 0 80 80">
+            <path d="M2,80 L2,2 L80,2" fill="none" stroke="url(#cg2)" stroke-width="2" />
+            <defs>
+                <linearGradient id="cg2" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#4da6ff" stop-opacity="0.55" />
+                    <stop offset="100%" stop-color="#a78bfa" stop-opacity="0.55" />
+                </linearGradient>
+            </defs>
+        </svg></div>
+    <div class="bracket bl"><svg viewBox="0 0 80 80">
+            <path d="M2,80 L2,2 L80,2" fill="none" stroke="url(#cg3)" stroke-width="2" />
+            <defs>
+                <linearGradient id="cg3" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#4da6ff" stop-opacity="0.55" />
+                    <stop offset="100%" stop-color="#a78bfa" stop-opacity="0.55" />
+                </linearGradient>
+            </defs>
+        </svg></div>
+    <div class="bracket br"><svg viewBox="0 0 80 80">
+            <path d="M2,80 L2,2 L80,2" fill="none" stroke="url(#cg4)" stroke-width="2" />
+            <defs>
+                <linearGradient id="cg4" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#4da6ff" stop-opacity="0.55" />
+                    <stop offset="100%" stop-color="#a78bfa" stop-opacity="0.55" />
+                </linearGradient>
+            </defs>
+        </svg></div>
+
+    <div id="idle">
+        <div class="eyebrow">// content collective</div>
+
+        <div class="wordmark-row">
+            <div class="flank-tick li"></div>
+            <div class="flank-tick l"></div>
+            <h1 class="wordmark" id="wordmark" aria-label="VSM">
+                <span class="mask"><span class="ch">V</span></span>
+                <span class="mask"><span class="ch">S</span></span>
+                <span class="mask"><span class="ch">M</span></span>
+            </h1>
+            <div class="flank-tick r"></div>
+            <div class="flank-tick o"></div>
+        </div>
+
+        <div class="underline"></div>
+        <div class="tagline">Kill3rKai · Polaris · Orion · LillyAi</div>
+
+        <button id="enterBtn" type="button" aria-label="Enter site">
+            <span class="enter-ring"></span>
+            <span class="enter-label">
+                <i class="fa-solid fa-power-off"></i>
+                Enter
+            </span>
+        </button>
+        <div class="enter-hint">click to enter<span class="blink-cursor">_</span></div>
+    </div>
+
+    <div id="curtain"></div>
+
+    <script src="Scripts/index.js" defer></script>
+</body>
+
+</html>

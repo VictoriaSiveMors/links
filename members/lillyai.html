@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LillyAi — VSM</title>
+
+    <link rel="icon" href="../Images/vsm.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../Images/vsm.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="../Styles/shared.css">
+    <link rel="stylesheet" href="../Styles/member.css">
+
+    <meta name="theme-color" content="#0b0c14">
+    <meta name="description" content="LillyAi — a custom-built AI with a real personality, voice, vision and memory. Built by Kill3rKai. Part of VSM.">
+
+    <meta property="og:title" content="LillyAi — VSM">
+    <meta property="og:description" content="A custom-built AI with a real personality. Built by Kill3rKai. Part of VSM.">
+    <meta property="og:type" content="profile">
+    <meta property="og:image" content="https://victoriasivemors.github.io/links/Images/vsm.png">
+
+    <script>document.documentElement.classList.add("js");</script>
+</head>
+
+<body class="member lillyai">
+
+    <div id="cursor"></div>
+    <div id="cursorRing"></div>
+
+    <canvas id="bg"></canvas>
+    <div class="vignette"></div>
+
+    <header class="topbar">
+        <a class="brand" href="../main.html" aria-label="VSM home">
+            VSM
+            <span class="brand-dots" aria-hidden="true">
+                <i class="c"></i><i class="s"></i><i class="a"></i><i class="l"></i>
+            </span>
+        </a>
+        <nav class="nav" aria-label="Main">
+            <a href="../about.html">About</a>
+            <a href="../schedule.html">Schedule</a>
+            <a href="../secrets.html" class="secret"><i class="fa-solid fa-lock"></i>Secrets</a>
+        </nav>
+        <a class="ttv-btn" href="https://www.twitch.tv/victorasivemors" target="_blank" rel="noopener">
+            <i class="fa-brands fa-twitch"></i> VSM
+        </a>
+    </header>
+
+    <main class="page">
+        <section class="hero wrap">
+            <a class="back" href="../main.html">← All members</a>
+            <div class="hero-grid">
+                <div class="portrait">
+                    <img src="../Images/lilly.png" alt="LillyAI logo">
+                </div>
+                <div class="hero-info">
+                    <div class="role">// ai</div>
+                    <h1 class="name">LillyAi</h1>
+                    <p class="tagline">Autonomous AI · Custom-built · by Kill3rKai</p>
+                    <div class="socials">
+                        <a class="btn primary" href="https://kill3rkai.ai/lilly" target="_blank" rel="noopener">
+                            <i class="fa-solid fa-globe"></i>Her page</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════ ABOUT ══════════ -->
+        <section class="section wrap reveal">
+            <h2 class="section-title">// about</h2>
+            <p class="about-text" style="color:var(--text); font-weight:600;">
+                Lilly isn't a chatbot.
+            </p>
+            <p class="about-text" style="margin-top:18px;">
+                A custom-built AI with a real personality, low-latency voice, vision, and a filter system she largely
+                wrote herself. Built from the ground up for one environment — and nothing else.
+            </p>
+            <div class="chips">
+                <span class="chip">Autonomous AI</span>
+                <span class="chip">Custom LLM</span>
+                <span class="chip">Live Voice</span>
+                <span class="chip">Vision</span>
+                <span class="chip">Long-term Memory</span>
+                <span class="chip">V4 — Active</span>
+            </div>
+        </section>
+
+        <section class="section wrap reveal">
+            <h2 class="section-title">// capabilities</h2>
+            <div class="cards">
+
+                <article class="card">
+                    <span class="tag">Active</span>
+                    <h3>Personality Engine</h3>
+                    <p>A custom fine-tuned LLM with persistent traits, wit, group dynamics and inside-joke awareness.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <span class="tag">Active</span>
+                    <h3>Content Filter</h3>
+                    <p>A multi-layered safety system that answers with in-character "annoyed" reactions. She built
+                        most of it herself.</p>
+                </article>
+
+                <article class="card">
+                    <span class="tag">Active</span>
+                    <h3>Low-Latency Voice</h3>
+                    <p>Real-time voice synthesis with a custom voice — made for live conversation, not pre-rendered
+                        clips.</p>
+                </article>
+
+                <article class="card">
+                    <span class="tag">Active</span>
+                    <h3>Vision</h3>
+                    <p>Stream-aware. She sees live visual input and reacts to what's happening, not just what she
+                        hears.</p>
+                </article>
+
+                <article class="card">
+                    <span class="tag">Active</span>
+                    <h3>Browser &amp; Search</h3>
+                    <p>Searches the web on her own when she's unsure or when asked, including images and video.</p>
+                </article>
+
+                <article class="card">
+                    <span class="tag">Active</span>
+                    <h3>Discord &amp; Games</h3>
+                    <p>A real member of the server: chat, DMs and live voice calls, reacting to gameplay in real time.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <span class="tag">Active</span>
+                    <h3>Memory</h3>
+                    <p>Short-term context plus long-term recall, so sessions build on each other.</p>
+                </article>
+
+                <article class="card">
+                    <span class="tag">W.I.P</span>
+                    <h3>Mood Avatar</h3>
+                    <p>A live animated face that shows her current emotional state. Still in progress.</p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ══════════ PERSONALITY ══════════ -->
+        <section class="section wrap reveal">
+            <h2 class="section-title">// personality</h2>
+
+            <p class="about-text" style="color:var(--text); font-weight:600;">
+                She has a character.
+            </p>
+            <p class="about-text" style="margin-top:18px;">
+                Not a persona config. Not a system prompt. A genuine, emergent character that developed through
+                interaction — opinionated, sharp, and built for the chaos of a live friend group.
+            </p>
+            <p class="about-text" style="margin-top:18px;">
+                The filter system? She built most of that herself. The "annoyed" responses when you push limits? Her
+                idea. Lilly V4 is less engineered and more raised.
+            </p>
+        </section>
+
+        <!-- ══════════ V4 ══════════ -->
+        <section class="section wrap reveal">
+            <h2 class="section-title">// latest release — v4</h2>
+            <p class="about-text">
+                Reduced latency, stronger filter system, more natural speech patterns, and a personality that's had
+                time to settle.
+            </p>
+            <div class="chips">
+                <span class="chip">✔ Lower latency voice</span>
+                <span class="chip">✔ Stronger filter</span>
+                <span class="chip">✔ More natural speech</span>
+                <span class="chip">✔ Expanded vision reactions</span>
+                <span class="chip" style="opacity:0.55;">◌ Avatar — in progress</span>
+            </div>
+        </section>
+
+        <!-- ══════════ FILLER — fill in as she settles into the streams ══════════ -->
+        <section class="section wrap reveal">
+            <h2 class="section-title">// with vsm</h2>
+            <div class="cards">
+
+                <article class="card">
+                    <span class="tag">TODO · Streams</span>
+                    <h3>Where to catch her</h3>
+                    <p>Which streams she joins and when. (Filler — she only joined recently.)</p>
+                </article>
+
+                <article class="card">
+                    <span class="tag">TODO · Moments</span>
+                    <h3>Best moments</h3>
+                    <p>Clips or funny moments from stream. (Filler.)</p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ══════════ PREV / NEXT MEMBER ══════════ -->
+        <section class="section wrap reveal">
+            <h2 class="section-title">// the rest of vsm</h2>
+            <div class="pager">
+                <a class="prev" href="orion.html" style="--accent:var(--army-lt); --rgb:147,168,102">
+                    <span class="dir">← previous</span>
+                    <span class="who">Orion</span>
+                </a>
+                <a class="next" href="kill3rkai.html" style="--accent:var(--cyber); --rgb:77,166,255">
+                    <span class="dir">next →</span>
+                    <span class="who">Kill3rKai</span>
+                </a>
+            </div>
+        </section>
+
+        <footer class="page-foot wrap">// built by kill3rkai · proprietary, not open-source</footer>
+    </main>
+
+    <div id="curtain" class="intro"></div>
+
+    <script src="../Scripts/shared.js" defer></script>
+    <script src="../Scripts/member.js" defer></script>
+</body>
+
+</html>

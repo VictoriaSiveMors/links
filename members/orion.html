@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orion — VSM</title>
+
+    <link rel="icon" href="../Images/vsm.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../Images/vsm.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="../Styles/shared.css">
+    <link rel="stylesheet" href="../Styles/member.css">
+
+    <meta name="theme-color" content="#0b0c14">
+    <meta name="description" content="Orion — VSM's 3rd streamer. Random gaming, chill or chaotic. Part of VSM.">
+
+    <meta property="og:title" content="Orion — VSM">
+    <meta property="og:description" content="VSM's 3rd streamer. Random gaming, chill or chaotic.">
+    <meta property="og:type" content="profile">
+    <meta property="og:image" content="https://victoriasivemors.github.io/links/Images/orion.png">
+
+    <script>document.documentElement.classList.add("js");</script>
+</head>
+
+<body class="member orion">
+
+    <div id="cursor"></div>
+    <div id="cursorRing"></div>
+    <canvas id="bg"></canvas>
+    <div class="vignette"></div>
+
+    <header class="topbar">
+        <a class="brand" href="../main.html" aria-label="VSM home">
+            VSM
+            <span class="brand-dots" aria-hidden="true">
+                <i class="c"></i><i class="s"></i><i class="a"></i><i class="l"></i>
+            </span>
+        </a>
+        <nav class="nav" aria-label="Main">
+            <a href="../about.html">About</a>
+            <a href="../schedule.html">Schedule</a>
+            <a href="../secrets.html" class="secret"><i class="fa-solid fa-lock"></i>Secrets</a>
+        </nav>
+        <a class="ttv-btn" href="https://www.twitch.tv/victorasivemors" target="_blank" rel="noopener">
+            <i class="fa-brands fa-twitch"></i> VSM
+        </a>
+    </header>
+
+    <main class="page">
+        <section class="hero wrap">
+            <a class="back" href="../main.html">← All members</a>
+            <div class="hero-grid">
+                <div class="portrait">
+                    <img src="../Images/orion.png" alt="Orion logo">
+                </div>
+                <div class="hero-info">
+                    <div class="role">// army</div>
+                    <h1 class="name">Orion</h1>
+                    <p class="tagline">VSM's 3rd streamer · Variety gaming</p>
+                    <div class="socials">
+                        <a class="btn primary" href="https://twitch.tv/orion1367" target="_blank" rel="noopener">
+                            <i class="fa-brands fa-twitch"></i>Twitch
+                        </a>
+                        <a class="btn primary" href="https://ashigaru13.github.io/links/" target="_blank" rel="noopener">
+                            <i class="fa-solit fa-globe"></i>Socials
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section wrap reveal">
+            <h2 class="section-title">// about</h2>
+            <p class="about-text" style="color:var(--text); font-weight:600;">
+                Hey, I'm Orion.
+            </p>
+            <p class="about-text" style="margin-top:18px;">
+                I am VSM's 3rd streamer. I stream whatever game I'm into at the time — could be anything, no fixed
+                genre. Some sessions are chill, some are chaotic. Depends on the op.
+            </p>
+            <p class="about-text" style="margin-top:18px;">
+                Upload schedule is loose — I stream on weekends mainly (FRI, SAT). 
+            </p>
+            <p class="about-text" style="margin-top:18px;">
+                If you're into random gaming content, welcome aboard.
+            </p>
+
+            <div class="chips">
+                <span class="chip">Streamer</span>
+                <span class="chip">Variety Gaming</span>
+                <span class="chip">Weekend Streams</span>
+                <span class="chip">Chill · Chaotic</span>
+            </div>
+        </section>
+
+        <section class="section wrap reveal">
+            <h2 class="section-title">// what i do</h2>
+            <div class="cards">
+                <article class="card">
+                    <span class="tag">Streams · Fri &amp; Sat</span>
+                    <h3>Weekend streams</h3>
+                    <p>Mainly Friday and Saturday. The schedule is loose, so check the schedule page for details.</p>
+                </article>
+
+                <article class="card">
+                    <span class="tag">Any game</span>
+                    <h3>No fixed genre</h3>
+                    <p>Whatever game he's into at the time — could be anything.</p>
+                </article>
+
+                <article class="card">
+                    <span class="tag">Vibe</span>
+                    <h3>Chill or chaotic</h3>
+                    <p>Some sessions are chill, some are chaotic. Depends on the op.</p>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="section wrap reveal">
+            <h2 class="section-title">// the rest of vsm</h2>
+            <div class="pager">
+                <a class="prev" href="polaris.html" style="--accent:var(--space); --rgb:167,139,250">
+                    <span class="dir">← previous</span>
+                    <span class="who">Polaris</span>
+                </a>
+                <a class="next" href="lillyai.html" style="--accent:var(--lilly); --rgb:255,110,180">
+                    <span class="dir">next →</span>
+                    <span class="who">LillyAi</span>
+                </a>
+            </div>
+        </section>
+
+        <footer class="page-foot wrap">// vsm · content collective</footer>
+    </main>
+
+    <div id="curtain" class="intro"></div>
+
+    <script src="../Scripts/shared.js" defer></script>
+    <script src="../Scripts/member.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,379 @@
+/* ── scene ── */
+.scene {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    height: 100%;
+    padding-top: var(--topbar-h);
+    padding-bottom: 40px;
+}
+
+/* ── panel ── */
+.panel {
+    --accent: var(--cyber);
+    --rgb: 77, 166, 255;
+
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: clamp(24px, 3vw, 48px);
+    overflow: hidden;
+    border-left: 1px solid var(--border);
+    background: linear-gradient(to top, rgba(var(--rgb), 0.12), transparent 60%);
+    transition: flex 0.8s var(--ease), background 0.5s ease;
+
+    opacity: 0;
+    animation: fadeUp 1s var(--ease) calc(0.7s + var(--i) * 0.13s) forwards;
+}
+
+.panel:last-child {
+    border-right: 1px solid var(--border);
+}
+
+.panel:hover,
+.panel:focus-within {
+    flex: 1.9;
+    background: linear-gradient(to top, rgba(var(--rgb), 0.24), rgba(var(--rgb), 0.03) 70%);
+}
+
+/* accent line across the top */
+.panel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent);
+    box-shadow: 0 0 18px var(--accent);
+    opacity: 0.35;
+    transform: scaleX(0.25);
+    transform-origin: left;
+    transition: transform 0.8s var(--ease), opacity 0.4s ease;
+}
+
+.panel:hover::before,
+.panel:focus-within::before {
+    transform: scaleX(1);
+    opacity: 1;
+}
+
+/* giant faint initial — placeholder for member art */
+.panel .ghost {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: clamp(9rem, 26vw, 24rem);
+    line-height: 1;
+    color: rgba(var(--rgb), 0.06);
+    pointer-events: none;
+    user-select: none;
+    transition: transform 0.9s var(--ease), color 0.5s ease;
+}
+
+.panel:hover .ghost,
+.panel:focus-within .ghost {
+    transform: translate(-50%, -54%) scale(1.06);
+    color: rgba(var(--rgb), 0.11);
+}
+
+.panel .idx {
+    position: absolute;
+    top: 28px;
+    left: clamp(24px, 3vw, 48px);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    color: var(--muted);
+}
+
+/* ── panel info ── */
+.info {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.role {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.name {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.8rem, 3.6vw, 3.2rem);
+    line-height: 1.05;
+    color: var(--text);
+    text-shadow: 0 0 30px rgba(var(--rgb), 0.35);
+    overflow-wrap: anywhere;
+}
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border: 1px solid rgba(var(--rgb), 0.45);
+    border-radius: 999px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, gap 0.3s var(--ease);
+}
+
+.btn.primary {
+    background: rgba(var(--rgb), 0.16);
+}
+
+.btn:hover {
+    background: var(--accent);
+    color: var(--bg);
+    box-shadow: 0 0 24px rgba(var(--rgb), 0.5);
+}
+
+.btn.primary:hover {
+    gap: 16px;
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+/* ── member accents ── */
+.panel.kill3rkai {
+    --accent: var(--cyber);
+    --rgb: 77, 166, 255;
+}
+
+.panel.polaris {
+    --accent: var(--space);
+    --rgb: 167, 139, 250;
+}
+
+.panel.orion {
+    --accent: var(--army-lt);
+    --rgb: 147, 168, 102;
+}
+
+.panel.lillyai {
+    --accent: var(--lilly);
+    --rgb: 255, 110, 180;
+}
+
+/* ── footer strip ── */
+.foot {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 40px;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    background: rgba(11, 12, 20, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity: 0;
+    animation: fadeIn 0.8s ease 1.4s forwards;
+}
+
+/* ── mobile / narrow: stack panels, let the page scroll ── */
+@media (max-width: 800px) {
+
+    html,
+    body {
+        height: auto;
+        min-height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .scene {
+        flex-direction: column;
+        height: auto;
+        padding-bottom: 56px;
+    }
+
+    .panel,
+    .panel:hover,
+    .panel:focus-within {
+        flex: none;
+        min-height: 260px;
+        border-left: none;
+        border-top: 1px solid var(--border);
+    }
+
+    .panel:last-child {
+        border-right: none;
+    }
+
+    .panel .ghost {
+        top: 50%;
+        left: auto;
+        right: 4%;
+        transform: translateY(-50%);
+        font-size: 11rem;
+    }
+
+    .panel:hover .ghost,
+    .panel:focus-within .ghost {
+        transform: translateY(-50%);
+    }
+
+    .panel::before {
+        transform: scaleX(1);
+    }
+
+    .foot {
+        padding: 0 18px;
+        letter-spacing: 0.15em;
+    }
+}
+
+/* ── member logo / pfp (replaces the ghost letter when a panel has an image) ── */
+.panel .art {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    width: clamp(150px, 20vw, 300px);
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+    transition: transform 0.9s var(--ease);
+}
+
+/* circle radius per logo, as a % of the image width — nudge if an edge shows */
+.panel .art {
+    --crop: 50%;
+}
+
+.panel.kill3rkai .art {
+    --crop: 48.5%;
+}
+
+.panel.polaris .art {
+    --crop: 48%;
+}
+
+.panel.orion .art {
+    --crop: 46.3%;
+}
+
+.panel .art::before {
+    content: "";
+    position: absolute;
+    inset: -25%;
+    background: radial-gradient(circle, rgba(var(--rgb), 0.28), transparent 65%);
+    opacity: 0.5;
+    transition: opacity 0.5s ease;
+}
+
+.panel .art img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.7;
+    /* cut the square away, keep only the circle (--crop = circle radius) */
+    clip-path: circle(var(--crop) at 50% 50%);
+    transition: opacity 0.5s ease;
+}
+
+/* glow that hugs the circle (a filter on the img would get clipped) */
+.panel .art::after {
+    content: "";
+    position: absolute;
+    inset: calc(50% - var(--crop));
+    border-radius: 50%;
+    box-shadow: 0 0 40px rgba(var(--rgb), 0.35);
+    transition: box-shadow 0.5s ease;
+}
+
+.panel:hover .art::after,
+.panel:focus-within .art::after {
+    box-shadow: 0 0 60px rgba(var(--rgb), 0.55);
+}
+
+.panel:hover .art,
+.panel:focus-within .art {
+    transform: translate(-50%, -54%) scale(1.06);
+}
+
+.panel:hover .art::before,
+.panel:focus-within .art::before {
+    opacity: 1;
+}
+
+.panel:hover .art img,
+.panel:focus-within .art img {
+    opacity: 1;
+}
+
+@media (max-width: 800px) {
+
+    .panel .art,
+    .panel:hover .art,
+    .panel:focus-within .art {
+        top: 50%;
+        left: auto;
+        right: 6%;
+        width: 150px;
+        transform: translateY(-50%);
+    }
+
+    .panel .art img {
+        opacity: 0.4;
+    }
+}
+
+.panel-link {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+}
+
+.panel-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -6px;
+}
+
+.panel .info {
+    z-index: 4;
+    pointer-events: none;
+}
+
+.panel .info .btn {
+    pointer-events: auto;
+}

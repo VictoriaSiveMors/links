@@ -1,0 +1,149 @@
+/* ============================================================
+   shared.js — reused by every inner VSM page:
+   1. Background canvas (grid + stars + corner hexes)
+   2. Custom cursor (ring grows over links/buttons)
+   3. Page-wipe transitions between pages
+      (opt a link out with data-no-transition)
+   ============================================================ */
+
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ── background canvas ── */
+(function () {
+    const canvas = document.getElementById("bg");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    const BLUE = "rgba(77,166,255,";
+    const PURPLE = "rgba(167,139,250,";
+
+    function mulberry32(a) {
+        return function () {
+            a |= 0; a = a + 0x6D2B79F5 | 0;
+            let t = Math.imul(a ^ a >>> 15, 1 | a);
+            t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+            return ((t ^ t >>> 14) >>> 0) / 4294967296;
+        };
+    }
+
+    function draw() {
+        const W = (canvas.width = window.innerWidth);
+        const H = (canvas.height = window.innerHeight);
+        ctx.clearRect(0, 0, W, H);
+
+        ctx.strokeStyle = BLUE + "0.045)";
+        ctx.lineWidth = 1;
+        const step = 64;
+        for (let x = 0; x < W; x += step) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
+        for (let y = 0; y < H; y += step) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+
+        const rng = mulberry32(7);
+        const starCount = Math.round((W * H) / 26000);
+        for (let i = 0; i < starCount; i++) {
+            const x = rng() * W, y = rng() * H;
+            const r = 0.6 + rng() * 1.5;
+            const a = 0.2 + rng() * 0.4;
+            ctx.beginPath();
+            ctx.arc(x, y, r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(220,215,255,${a})`;
+            ctx.shadowColor = `rgba(220,215,255,${a * 0.5})`;
+            ctx.shadowBlur = r * 3;
+            ctx.fill();
+        }
+        ctx.shadowBlur = 0;
+
+        function hex(cx, cy, r, alpha, color) {
+            ctx.beginPath();
+            for (let i = 0; i < 6; i++) {
+                const angle = (Math.PI / 180) * (60 * i - 30);
+                const px = cx + r * Math.cos(angle), py = cy + r * Math.sin(angle);
+                i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+            }
+            ctx.closePath();
+            ctx.strokeStyle = color + alpha + ")";
+            ctx.lineWidth = 1;
+            ctx.stroke();
+        }
+        [
+            { cx: 90, cy: 90, color: BLUE },
+            { cx: W - 90, cy: 90, color: PURPLE },
+            { cx: 90, cy: H - 90, color: PURPLE },
+            { cx: W - 90, cy: H - 90, color: BLUE },
+        ].forEach(({ cx, cy, color }) => {
+            for (let i = 0; i < 3; i++) hex(cx, cy, 30 + i * 26, 0.08 - i * 0.02, color);
+        });
+    }
+
+    draw();
+    window.addEventListener("resize", draw);
+})();
+
+/* ── custom cursor ── */
+(function () {
+    const dot = document.getElementById("cursor");
+    const ring = document.getElementById("cursorRing");
+    if (!dot || !ring || window.matchMedia("(pointer: coarse)").matches) return;
+
+    let rx = 0, ry = 0;
+    window.addEventListener("mousemove", (e) => {
+        dot.style.left = e.clientX + "px";
+        dot.style.top = e.clientY + "px";
+        rx = e.clientX; ry = e.clientY;
+        ring.classList.toggle("hover", !!e.target.closest("a, button"));
+    });
+    function tick() {
+        ring.style.left = rx + "px";
+        ring.style.top = ry + "px";
+        requestAnimationFrame(tick);
+    }
+    tick();
+})();
+
+/* ── page transitions ── */
+(function () {
+    const curtain = document.getElementById("curtain");
+    if (!curtain) return;
+    const LEAVE_MS = 800;
+    let leaving = false;
+
+    function resetCurtain() {
+        leaving = false;
+        curtain.classList.remove("active", "intro");
+        curtain.style.transition = "";
+    }
+
+    document.addEventListener("click", (e) => {
+        const a = e.target.closest("a[href]");
+        if (!a || a.hasAttribute("data-no-transition")) return;
+        if (a.target === "_blank" || a.hasAttribute("download")) return;
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+
+        const url = new URL(a.href, window.location.href);
+        if (url.origin !== window.location.origin) return;                  // external
+        if (url.pathname === window.location.pathname && url.hash) return;  // in-page anchor
+
+        e.preventDefault();
+        if (leaving) return;
+        leaving = true;
+
+        if (prefersReducedMotion) {
+            window.location.href = url.href;
+            return;
+        }
+
+        // reset the curtain to "below the screen" with no animation, then slide it up
+        curtain.classList.remove("intro");
+        curtain.style.transition = "none";
+        curtain.style.transform = "translateY(100%)";
+        void curtain.offsetHeight; // force reflow
+        curtain.style.transition = "";
+        curtain.style.transform = "";
+        curtain.classList.add("active");
+
+        setTimeout(() => (window.location.href = url.href), LEAVE_MS);
+    });
+
+    // Back button restoring the page from cache
+    window.addEventListener("pageshow", (e) => {
+        if (e.persisted) resetCurtain();
+    });
+})();

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VSM</title>
+
+    <link rel="icon" href="Images/vsm.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="Images/vsm.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@700;900&family=Rajdhani:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="Styles/shared.css">
+    <link rel="stylesheet" href="Styles/main.css">
+
+    <meta name="theme-color" content="#0b0c14">
+    <meta name="description" content="VSM — content collective.">
+
+    <meta property="og:title" content="VSM">
+    <meta property="og:description" content="VSM — content collective.">
+    <meta property="og:type" content="website">
+    <!-- TODO: replace with real og:image once hosted -->
+    <meta property="og:image" content="https://victoriasivemors.github.io/links/Images/meta.jpg">
+</head>
+
+<body>
+
+    <div id="cursor"></div>
+    <div id="cursorRing"></div>
+
+    <canvas id="bg"></canvas>
+    <div class="vignette"></div>
+
+    <header class="topbar">
+        <a class="brand" href="main.html" aria-label="VSM home">
+            VSM
+            <span class="brand-dots" aria-hidden="true">
+                <i class="c"></i><i class="s"></i><i class="a"></i><i class="l"></i>
+            </span>
+        </a>
+
+        <nav class="nav" aria-label="Main">
+            <a href="about.html">About</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="secrets.html" class="secret"><i class="fa-solid fa-lock"></i>Secrets</a>
+        </nav>
+
+        <a class="ttv-btn" href="https://www.twitch.tv/victorasivemors" target="_blank" rel="noopener">
+            <i class="fa-brands fa-twitch"></i> VSM
+        </a>
+    </header>
+
+    <main class="scene">
+
+        <article class="panel kill3rkai" style="--i:0">
+            <a class="panel-link" href="members/kill3rkai.html" aria-label="Open Kill3rKai's page"></a>
+            <span class="idx">01</span>
+            <div class="art"><img src="Images/kill3rkai.png" alt="Kill3rKai logo"></div>
+            <div class="info">
+                <div class="role">// cyber · terminal</div>
+                <h2 class="name">Kill3rKai</h2>
+                <div class="links">
+                    <a class="btn" href="https://twitch.tv/kill3rkai" target="_blank" rel="noopener"
+                        aria-label="Kill3rKai on Twitch"><i class="fa-brands fa-twitch"></i>Twitch
+                    </a>
+                    <a class="btn" href="https://www.youtube.com/@Kill3rKai" target="_blank" rel="noopener"
+                        aria-label="Kill3rKai on YouTube"><i class="fa-brands fa-youtube"></i>YouTube
+                    </a>
+                    <a class="btn" href="https://kill3rkai.ai" target="_blank" rel="noopener"
+                        aria-label="Kill3rKai on all"><i class="fa-solid fa-globe"></i>Socials
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <article class="panel polaris" style="--i:1">
+            <a class="panel-link" href="members/polaris.html" aria-label="Open Polaris's page"></a>
+            <span class="idx">02</span>
+            <div class="art"><img src="Images/polaris.png" alt="Polaris logo"></div>
+            <div class="info">
+                <div class="role">// space</div>
+                <h2 class="name">Polaris</h2>
+                <div class="links">
+                    <a class="btn" href="https://twitch.tv/polaris" target="_blank" rel="noopener"
+                        aria-label="Polaris on Twitch"><i class="fa-brands fa-twitch"></i>Twitch
+                    </a>
+                    <a class="btn" href="https://www.youtube.com/@Polaris1374" target="_blank" rel="noopener"
+                        aria-label="Polaris on YouTube"><i class="fa-brands fa-youtube"></i>YouTube
+                    </a>
+                    <a class="btn" href="https://polaris1374.github.io/Links/" target="_blank" rel="noopener"
+                        aria-label="Polaris on all"><i class="fa-solid fa-globe"></i>Socials
+                    </a </div>
+                </div>
+        </article>
+
+        <article class="panel orion" style="--i:2">
+            <a class="panel-link" href="members/orion.html" aria-label="Open Orion's page"></a>
+            <span class="idx">03</span>
+            <div class="art"><img src="Images/orion.png" alt="Orion logo"></div>
+            <div class="info">
+                <div class="role">// army</div>
+                <h2 class="name">Orion</h2>
+                <div class="links">
+                    <a class="btn" href="https://twitch.tv/orion" target="_blank" rel="noopener"
+                        aria-label="Orion on Twitch"><i class="fa-brands fa-twitch"></i>Twitch
+                    </a>
+                    <a class="btn" href="https://ashigaru13.github.io/links/" target="_blank" rel="noopener"
+                        aria-label="Orion on all"><i class="fa-solid fa-globe"></i>Socials
+                    </a </div>
+                </div>
+        </article>
+
+        <article class="panel lillyai" style="--i:3">
+            <a class="panel-link" href="members/lillyai.html" aria-label="Open LillyAi's page"></a>
+            <span class="idx">04</span>
+            <!-- no logo yet: swap this for <div class="art"><img src="Images/lillyai.png" alt="LillyAi logo"></div> -->
+            <div class="art"><img src="Images/lilly.png" alt="LillyAi logo"></div>
+            <div class="info">
+                <div class="role">// ai</div>
+                <h2 class="name">LillyAi</h2>
+                <div class="links">
+                    <a class="btn" href="https://kill3rkai.ai/lilly" target="_blank" rel="noopener"
+                        aria-label="LillyAi's page"><i class="fa-solid fa-globe"></i>Page
+                    </a>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <footer class="foot">
+        <span>// vsm · content collective</span>
+        <span>select a member_</span>
+    </footer>
+
+    <div id="curtain" class="intro"></div>
+
+    <script src="Scripts/shared.js" defer></script>
+</body>
+
+</html>
