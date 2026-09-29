@@ -1,13 +1,19 @@
-/* 404 page — loads after styles.css, so it reuses its colour variables,
-   background layers (grid, orbs, noise, corners) and custom cursor. */
+/* the page can be taller than the screen on phones — let it scroll */
+html,
+body {
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
 
 .err-wrap {
     position: relative;
-    z-index: 1;
+    z-index: 10;
+    width: min(680px, calc(100% - 48px));
     min-height: 100vh;
-    max-width: 680px;
     margin: 0 auto;
-    padding: 60px 24px 50px;
+    padding: calc(var(--topbar-h) + 30px) 0 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,19 +21,34 @@
     text-align: center;
 }
 
-/* ── the one big moment: glitching 404 ── */
-.err-code {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(6rem, 26vw, 11rem);
-    font-weight: 400;
-    letter-spacing: 0.06em;
-    line-height: 0.9;
-    background: linear-gradient(135deg, #fff 30%, var(--accent) 60%, var(--accent3) 100%);
+/* ── 4 · 0 · 4 ──
+   fade-in is opacity-only so it doesn't fight the glitch's transform */
+.code {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.04em;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: clamp(5rem, 21vw, 9.5rem);
+    line-height: 1;
+    opacity: 0;
+    animation: fadeIn 0.9s ease 0.8s forwards, errGlitch 7s steps(1) 2.5s infinite;
+}
+
+.four {
+    background: linear-gradient(135deg, #fff 25%, var(--cyber) 60%, var(--space) 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
-    filter: drop-shadow(0 0 30px rgba(0, 200, 255, 0.45));
-    animation: errGlitch 6s steps(1) infinite;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 26px rgba(77, 166, 255, 0.4));
+}
+
+.zero {
+    flex: none;
+    width: 0.86em;
+    height: 0.86em;
+    filter: drop-shadow(0 0 24px rgba(77, 166, 255, 0.4));
 }
 
 @keyframes errGlitch {
@@ -36,128 +57,130 @@
     92%,
     100% {
         transform: none;
-        filter: drop-shadow(0 0 30px rgba(0, 200, 255, 0.45));
     }
 
     93% {
         transform: translateX(-4px);
-        filter: drop-shadow(4px 0 0 rgba(255, 45, 120, 0.7)) drop-shadow(-4px 0 0 rgba(0, 200, 255, 0.7));
+        filter: drop-shadow(4px 0 0 rgba(255, 110, 180, 0.7)) drop-shadow(-4px 0 0 rgba(77, 166, 255, 0.7));
     }
 
     95% {
         transform: translateX(3px);
-        filter: drop-shadow(-3px 0 0 rgba(255, 45, 120, 0.7)) drop-shadow(3px 0 0 rgba(0, 200, 255, 0.7));
+        filter: drop-shadow(-3px 0 0 rgba(255, 110, 180, 0.7)) drop-shadow(3px 0 0 rgba(77, 166, 255, 0.7));
     }
 
     97% {
         transform: translateX(-1px);
+        filter: none;
     }
+}
+
+/* crosshair ticks + the four orbiting member dots */
+.ticks,
+.orb {
+    transform-origin: 100px 100px;
+}
+
+.ticks {
+    animation: spin 40s linear infinite reverse;
+}
+
+.orb {
+    animation: spin var(--t, 10s) linear infinite;
+    animation-delay: var(--dl, 0s);
+}
+
+.orb.o1 {
+    --t: 9s;
+    --dl: 0s;
+}
+
+.orb.o2 {
+    --t: 12s;
+    --dl: -3s;
+}
+
+.orb.o3 {
+    --t: 15s;
+    --dl: -7s;
+}
+
+.orb.o4 {
+    --t: 18s;
+    --dl: -11s;
+}
+
+.orb.o1 circle {
+    filter: drop-shadow(0 0 6px #4da6ff);
+}
+
+.orb.o2 circle {
+    filter: drop-shadow(0 0 6px #a78bfa);
+}
+
+.orb.o3 circle {
+    filter: drop-shadow(0 0 6px #93a866);
+}
+
+.orb.o4 circle {
+    filter: drop-shadow(0 0 6px #ff6eb4);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ── text ── */
+.err-title {
+    margin-top: 22px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.3rem, 4.5vw, 2rem);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text);
+    text-shadow: -3px 0 20px rgba(77, 166, 255, 0.35), 3px 0 20px rgba(167, 139, 250, 0.35);
+    opacity: 0;
+    animation: fadeUp 0.9s var(--ease) 1s forwards;
 }
 
 .err-sub {
-    margin: 8px 0 28px;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.95rem;
-    letter-spacing: 0.3em;
-    color: var(--accent2);
-    text-transform: uppercase;
-}
-
-/* ── terminal window ── */
-.term {
-    width: 100%;
-    text-align: left;
-    background: rgba(2, 8, 18, 0.85);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    box-shadow: 0 0 30px rgba(0, 200, 255, 0.06);
-    overflow: hidden;
-}
-
-.term-bar {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    padding: 10px 14px;
-    background: rgba(255, 255, 255, 0.03);
-    border-bottom: 1px solid var(--border);
-}
-
-.term-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--muted);
-    opacity: 0.45;
-}
-
-.term-dot:nth-child(1) {
-    background: var(--accent2);
-}
-
-.term-dot:nth-child(2) {
-    background: var(--gold);
-}
-
-.term-dot:nth-child(3) {
-    background: var(--accent4);
-}
-
-.term-title {
-    margin-left: 8px;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
+    margin-top: 12px;
+    max-width: 44ch;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    letter-spacing: 0.03em;
     color: var(--muted);
-}
-
-.term-body {
-    padding: 18px 20px 20px;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.9rem;
-    line-height: 1.7;
-    color: var(--text);
-    min-height: 190px;
-}
-
-.term-body p {
-    word-break: break-all;
-}
-
-.term-body .prompt {
-    color: var(--accent);
-    margin-right: 6px;
-}
-
-.term-body .err {
-    color: var(--accent2);
-}
-
-.term-body .dim {
-    color: var(--muted);
-    word-break: normal;
-}
-
-/* lines appear one after another, no JS needed */
-.tl {
     opacity: 0;
-    animation: lineIn 0.01s linear forwards;
-    animation-delay: var(--d, 0s);
+    animation: fadeUp 0.9s var(--ease) 1.1s forwards;
 }
 
-@keyframes lineIn {
-    to {
-        opacity: 1;
-    }
+.lost {
+    max-width: 100%;
+    margin-top: 22px;
+    padding: 8px 18px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(140, 150, 220, 0.05);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    word-break: break-all;
+    opacity: 0;
+    animation: fadeUp 0.9s var(--ease) 1.2s forwards;
 }
 
-.term-cursor {
-    display: inline-block;
-    width: 8px;
-    height: 1em;
-    background: var(--accent);
-    vertical-align: text-bottom;
-    animation: blink 1s step-end infinite;
+.lost i {
+    margin-right: 8px;
+    color: var(--lilly);
+}
+
+.lost span {
+    color: var(--text);
 }
 
 /* ── actions ── */
@@ -166,71 +189,134 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 12px;
-    margin-top: 26px;
+    margin-top: 30px;
+    opacity: 0;
+    animation: fadeUp 0.9s var(--ease) 1.3s forwards;
 }
 
 .err-btn {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 12px 24px;
-    background: var(--surface);
+    padding: 12px 26px;
     border: 1px solid var(--border);
-    border-radius: 4px;
+    border-radius: 999px;
+    background: rgba(140, 150, 220, 0.05);
     color: var(--text);
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 1.05rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-decoration: none;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
     transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .err-btn i {
-    color: var(--accent);
-    font-size: 0.9rem;
+    color: var(--cyber);
+    font-size: 0.85rem;
+}
+
+.err-btn.primary {
+    border-color: rgba(77, 166, 255, 0.45);
+    background: rgba(77, 166, 255, 0.12);
 }
 
 .err-btn:hover,
 .err-btn:focus-visible {
-    background: rgba(0, 200, 255, 0.08);
-    border-color: rgba(0, 200, 255, 0.45);
-    box-shadow: 0 0 20px rgba(0, 200, 255, 0.15);
+    background: rgba(77, 166, 255, 0.18);
+    border-color: rgba(77, 166, 255, 0.6);
+    box-shadow: 0 0 22px rgba(77, 166, 255, 0.22);
     outline: none;
 }
 
-.err-footer {
-    margin-top: 44px;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    color: var(--muted);
-    opacity: 0.6;
+/* ── the crew waiting at spawn ── */
+.regroup {
+    width: 100%;
+    margin-top: 52px;
+    opacity: 0;
+    animation: fadeUp 0.9s var(--ease) 1.4s forwards;
 }
 
-.err-footer span {
-    color: var(--accent);
+.regroup-label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 22px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.regroup-label::before,
+.regroup-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border));
+}
+
+.regroup-label::after {
+    background: linear-gradient(90deg, var(--border), transparent);
+}
+
+.mates {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 26px;
+}
+
+.mate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color 0.25s ease;
+}
+
+.mate .av {
+    width: 58px;
+    height: 58px;
+    overflow: hidden;
+    border: 1px solid var(--c);
+    border-radius: 50%;
+    background: rgba(11, 12, 20, 0.8);
+    box-shadow: 0 0 16px -4px var(--c);
+    transition: translate 0.3s var(--ease), box-shadow 0.3s ease;
+}
+
+.mate .av img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mate:hover,
+.mate:focus-visible {
+    color: var(--text);
+    outline: none;
+}
+
+.mate:hover .av,
+.mate:focus-visible .av {
+    translate: 0 -5px;
+    box-shadow: 0 0 24px var(--c);
 }
 
 @media (max-width: 480px) {
-    .term-body {
-        font-size: 0.8rem;
-        padding: 14px 14px 16px;
-    }
-
     .err-btn {
         flex: 1 1 100%;
         justify-content: center;
     }
-}
 
-@media (prefers-reduced-motion: reduce) {
-    .err-code {
-        animation: none;
-    }
-
-    .tl {
-        opacity: 1;
-        animation: none;
+    .mates {
+        gap: 20px;
     }
 }

@@ -2,31 +2,40 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>404 // Kill3rKai</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- IMPORTANT for a 404 page: GitHub Pages serves this file at whatever broken URL was requested
+         (e.g. /links/members/nope/x), so plain "Styles/..." links would break. This sets a <base>
+         so every relative link/asset below resolves from the site root. On github.io project sites the
+         root is "/<repo>/"; anywhere else (custom domain, localhost) it's "/". -->
+  <script>
+    (function () {
+      var seg = location.pathname.split("/")[1];
+      var base = /\.github\.io$/.test(location.hostname) && seg ? "/" + seg + "/" : "/";
+      document.write('<base href="' + base + '">');
+    })();
+  </script>
+
+  <title>404 // VSM</title>
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#020812">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-  <link rel="stylesheet" href="Styles/styles.css">
-  <link rel="stylesheet" href="Styles/404.css">
+  <meta name="theme-color" content="#0b0c14">
 
   <link rel="icon" href="Images/vsm.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="Images/vsm.png">
 
-  <meta property="og:title" content="Kill3rkai">
-  <meta property="og:description" content="Official Website For Kill3rKai And LillyAI.">
-  <meta property="og:image" content="https://kill3rkai.ai/Images/iconfile.png">
-  <meta property="og:url" content="https://kill3rkai.ai">
-  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@700;900&family=Rajdhani:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="Styles/shared.css">
+  <link rel="stylesheet" href="Styles/404.css">
 
-  <script src="Scripts/main.js" defer></script>
-  <script src="Scripts/live.js" defer></script>
+  <meta property="og:title" content="404 // VSM">
+  <meta property="og:description" content="Out of bounds. This page doesn't exist.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://victoriasivemors.github.io/links/Images/vsm.png">
 </head>
 
 <body>
@@ -34,51 +43,114 @@
   <div id="cursor"></div>
   <div id="cursorRing"></div>
 
-  <div class="noise"></div>
-  <div class="grid-bg"></div>
-  <div class="glow-orb o1"></div>
-  <div class="glow-orb o2"></div>
-  <div class="glow-orb o3"></div>
-  <div class="corner-deco tl"></div>
-  <div class="corner-deco tr"></div>
-  <div class="corner-deco bl"></div>
-  <div class="corner-deco br"></div>
+  <canvas id="bg"></canvas>
+  <div class="vignette"></div>
+
+  <!-- ══════════ TOP BAR ══════════ -->
+  <header class="topbar">
+    <a class="brand" href="main.html" aria-label="VSM home">
+      VSM
+      <span class="brand-dots" aria-hidden="true">
+        <i class="c"></i><i class="s"></i><i class="a"></i><i class="l"></i>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Main">
+      <a href="about.html">About</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="secrets.html" class="secret"><i class="fa-solid fa-lock"></i>Secrets</a>
+    </nav>
+
+    <a class="ttv-btn" href="https://www.twitch.tv/victorasivemors" target="_blank" rel="noopener">
+      <i class="fa-brands fa-twitch"></i> VSM
+    </a>
+  </header>
 
   <main class="err-wrap">
 
-    <h1 class="err-code" aria-label="Error 404">404</h1>
-    <p class="err-sub">Page not found</p>
+    <!-- 4 · 0 · 4 — the zero is a target ring with the four members orbiting it -->
+    <h1 class="code" aria-label="Error 404">
+      <span class="four" aria-hidden="true">4</span>
+      <svg class="zero" viewBox="0 0 200 200" aria-hidden="true">
+        <defs>
+          <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff" />
+            <stop offset="45%" stop-color="#4da6ff" />
+            <stop offset="100%" stop-color="#a78bfa" />
+          </linearGradient>
+        </defs>
 
-    <section class="term" aria-label="Terminal output">
-      <div class="term-bar">
-        <span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span>
-        <span class="term-title">guest@kill3rkai.ai</span>
-      </div>
-      <div class="term-body">
-        <p class="tl" style="--d:0.3s"><span class="prompt">$</span> cd <span class="req-path"></span></p>
-        <p class="tl err" style="--d:1s">bash: cd: <span class="req-path"></span>: No such file or directory</p>
-        <p class="tl" style="--d:1.7s"><span class="prompt">$</span> ls /</p>
-        <p class="tl dim" style="--d:2.3s">main.html &nbsp; about.html &nbsp; schedule.html &nbsp; faq.html &nbsp;
-          goals.html &nbsp; specs.html</p>
-        <p class="tl" style="--d:3s"><span class="prompt">$</span> <span class="term-cursor"></span></p>
-      </div>
-    </section>
+        <!-- crosshair ticks (slow counter-spin) -->
+        <g class="ticks" stroke="url(#ringGrad)" stroke-width="5" stroke-linecap="round">
+          <line x1="100" y1="2" x2="100" y2="22" />
+          <line x1="100" y1="178" x2="100" y2="198" />
+          <line x1="2" y1="100" x2="22" y2="100" />
+          <line x1="178" y1="100" x2="198" y2="100" />
+        </g>
+
+        <!-- the ring -->
+        <circle cx="100" cy="100" r="72" fill="none" stroke="url(#ringGrad)" stroke-width="12" />
+        <circle cx="100" cy="100" r="50" fill="none" stroke="rgba(140,150,220,0.25)" stroke-width="1"
+          stroke-dasharray="3 7" />
+
+        <!-- four members riding the ring: Kill3rKai, Polaris, Orion, Lilly -->
+        <g class="orb o1">
+          <circle cx="100" cy="28" r="9" fill="#4da6ff" />
+        </g>
+        <g class="orb o2">
+          <circle cx="100" cy="28" r="9" fill="#a78bfa" />
+        </g>
+        <g class="orb o3">
+          <circle cx="100" cy="28" r="9" fill="#93a866" />
+        </g>
+        <g class="orb o4">
+          <circle cx="100" cy="28" r="9" fill="#ff6eb4" />
+        </g>
+      </svg>
+      <span class="four" aria-hidden="true">4</span>
+    </h1>
+
+    <h2 class="err-title">Out of bounds</h2>
+    <p class="err-sub">You've wandered off the map. There's nothing out here.</p>
+
+    <p class="lost"><i class="fa-solid fa-location-crosshairs"></i> Lost at <span id="req-path">/</span></p>
 
     <div class="err-actions">
-      <a class="err-btn" href="main.html"><i class="fa-solid fa-house"></i> Go home</a>
-      <button class="err-btn" id="back-btn" type="button"><i class="fa-solid fa-arrow-left"></i> Go back</button>
+      <a class="err-btn primary" href="main.html"><i class="fa-solid fa-house"></i> Respawn at hub</a>
+      <button class="err-btn" id="back-btn" type="button"><i class="fa-solid fa-arrow-left"></i> Go
+        back</button>
     </div>
 
-    <p class="err-footer"><span>//</span> KILL3RKAI &nbsp;·&nbsp; <span>2026</span></p>
+    <!-- the crew is waiting at spawn -->
+    <div class="regroup">
+      <div class="regroup-label">Regroup with the crew</div>
+      <div class="mates">
+        <a class="mate" href="members/kill3rkai.html" style="--c:#4da6ff">
+          <span class="av"><img src="Images/kill3rkai.png" alt=""></span>Kill3rKai
+        </a>
+        <a class="mate" href="members/polaris.html" style="--c:#a78bfa">
+          <span class="av"><img src="Images/polaris.png" alt=""></span>Polaris
+        </a>
+        <a class="mate" href="members/orion.html" style="--c:#93a866">
+          <span class="av"><img src="Images/orion.png" alt=""></span>Orion
+        </a>
+        <a class="mate" href="members/lillyai.html" style="--c:#ff6eb4">
+          <span class="av"><img src="Images/lilly.png" alt=""></span>LillyAi
+        </a>
+      </div>
+    </div>
 
   </main>
 
+  <div id="curtain" class="intro"></div>
+
+  <script src="Scripts/shared.js" defer></script>
   <script>
-    document.querySelectorAll('.req-path').forEach(function (el) {
-      el.textContent = location.pathname.slice(0, 80);
-    });
-    document.getElementById('back-btn').addEventListener('click', function () {
-      if (history.length > 1) history.back(); else location.href = '/';
+    // show the path that was requested
+    document.getElementById("req-path").textContent = location.pathname.slice(0, 60);
+    // "Go back": previous page if there is one, otherwise the hub
+    document.getElementById("back-btn").addEventListener("click", function () {
+      if (history.length > 1) history.back(); else location.href = "main.html";
     });
   </script>
 
