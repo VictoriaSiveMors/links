@@ -1,0 +1,597 @@
+/* ============================================================
+   about.css — VSM about page
+   Same brand tokens, fonts and motifs as index.css (the intro).
+   ============================================================ */
+
+:root {
+    --bg: #0b0c14;
+    --cyber: #4da6ff;
+    --cyber2: #2980d4;
+    --space: #a78bfa;
+    --space2: #7c3aed;
+    --lilly: #ff6eb4;
+    --army: #6b7a4a;
+    --text: #f3f6ff;
+    --muted: #8891b8;
+    --border: rgba(140, 150, 220, 0.18);
+    --card: rgba(140, 150, 220, 0.045);
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ── custom cursor (shared VSM pattern) ── */
+#cursor,
+#cursorRing {
+    display: none;
+}
+
+@media (pointer: fine) {
+
+    body,
+    a,
+    button {
+        cursor: none;
+    }
+
+    #cursor,
+    #cursorRing {
+        display: block;
+    }
+}
+
+#cursor {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: var(--cyber);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 16px var(--cyber);
+    mix-blend-mode: screen;
+}
+
+#cursorRing {
+    position: fixed;
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(140, 150, 220, 0.4);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+}
+
+body.hot #cursorRing {
+    width: 56px;
+    height: 56px;
+    border-color: rgba(140, 150, 220, 0.7);
+}
+
+/* ── background canvas + vignette + brackets ── */
+#bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    animation: fadeIn 1.4s ease both;
+}
+
+.vignette {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: radial-gradient(ellipse 70% 60% at 50% 50%, transparent 45%, rgba(0, 0, 0, 0.75) 100%);
+}
+
+.bracket {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0;
+    animation: fadeIn 1s ease 0.1s forwards;
+}
+
+.bracket svg {
+    width: 100%;
+    height: 100%;
+}
+
+.bracket.tl {
+    top: 32px;
+    left: 32px;
+}
+
+.bracket.tr {
+    top: 32px;
+    right: 32px;
+    transform: scaleX(-1);
+}
+
+.bracket.bl {
+    bottom: 32px;
+    left: 32px;
+    transform: scaleY(-1);
+}
+
+.bracket.br {
+    bottom: 32px;
+    right: 32px;
+    transform: scale(-1, -1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* load-in used across the page; --d sets the delay */
+.rv {
+    opacity: 0;
+    animation: fadeUp 0.9s var(--ease) forwards;
+    animation-delay: var(--d, 0s);
+}
+
+/* ── layout ── */
+.wrap {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 56px 28px 90px;
+}
+
+/* ── top bar ── */
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.back:hover,
+.back:focus-visible {
+    color: var(--cyber);
+    outline: none;
+}
+
+.mark {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 1.05rem;
+    letter-spacing: 0.1em;
+    text-shadow: -2px 0 12px rgba(77, 166, 255, 0.45), 2px 0 12px rgba(167, 139, 250, 0.45);
+}
+
+/* ── hero ── */
+.hero {
+    padding: clamp(56px, 11vh, 110px) 0 44px;
+}
+
+.eyebrow {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 0.5em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 22px;
+}
+
+.title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.9rem, 6.4vw, 4rem);
+    line-height: 1.12;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--text);
+    text-shadow: -4px 0 26px rgba(77, 166, 255, 0.35), 4px 0 26px rgba(167, 139, 250, 0.35);
+}
+
+.underline {
+    width: min(70vw, 460px);
+    height: 2px;
+    margin: 28px 0 26px;
+    background: linear-gradient(90deg, var(--cyber) 0%, var(--space) 70%, transparent);
+    opacity: 0.7;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: draw 1.2s var(--ease) 0.5s forwards;
+}
+
+@keyframes draw {
+    to {
+        transform: scaleX(1);
+    }
+}
+
+.lede {
+    max-width: 580px;
+    font-size: clamp(1.1rem, 2.6vw, 1.3rem);
+    font-weight: 400;
+    line-height: 1.65;
+    letter-spacing: 0.02em;
+    color: rgba(243, 246, 255, 0.72);
+}
+
+/* ── quick facts ── */
+.facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--border);
+    background: var(--card);
+    margin-bottom: 70px;
+}
+
+.fact {
+    padding: 22px 24px;
+}
+
+.fact+.fact {
+    border-left: 1px solid var(--border);
+}
+
+.fnum {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.15rem, 3.4vw, 1.8rem);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    background: linear-gradient(135deg, #fff 20%, var(--cyber) 60%, var(--space));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.flab {
+    margin-top: 10px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+/* ── section labels ── */
+.block {
+    margin-bottom: 70px;
+}
+
+.label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--border), transparent);
+}
+
+/* ── crew cards ── */
+.crew {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.card {
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--c);
+    padding: 26px 22px 22px;
+    transition: transform 0.3s var(--ease), border-color 0.25s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--c);
+    box-shadow: 0 12px 36px -14px var(--c);
+}
+
+.avatar {
+    width: 58px;
+    height: 58px;
+    margin-bottom: 18px;
+    border-radius: 50%;
+    border: 1px solid var(--c);
+    background: rgba(11, 12, 20, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 1.4rem;
+    color: var(--ct);
+    box-shadow: 0 0 16px -4px var(--c);
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: 0.06em;
+}
+
+.role {
+    margin-top: 6px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ct);
+}
+
+.desc {
+    margin-top: 14px;
+    font-size: 1.02rem;
+    line-height: 1.55;
+    color: rgba(243, 246, 255, 0.62);
+}
+
+.links {
+    display: flex;
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.links a {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.links a:hover,
+.links a:focus-visible {
+    color: var(--ct);
+    border-color: var(--c);
+    background: rgba(140, 150, 220, 0.08);
+    outline: none;
+}
+
+/* ── schedule ── */
+.sched {
+    border: 1px solid var(--border);
+    background: var(--card);
+    padding: 28px 26px;
+}
+
+.days {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.day {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 22px;
+    border: 1px solid var(--border);
+    background: rgba(140, 150, 220, 0.05);
+}
+
+.dname {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--cyber);
+    box-shadow: 0 0 10px var(--cyber);
+    animation: pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.35;
+        transform: scale(0.7);
+    }
+}
+
+.snote {
+    margin-top: 20px;
+    max-width: 540px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: rgba(243, 246, 255, 0.62);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 22px;
+    padding: 13px 26px;
+    border: 1px solid var(--border);
+    background: rgba(140, 150, 220, 0.05);
+    color: var(--text);
+    text-decoration: none;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    transition: border-color 0.25s ease, background 0.25s ease, transform 0.15s ease;
+}
+
+.btn i {
+    color: var(--cyber);
+}
+
+.btn:hover,
+.btn:focus-visible {
+    border-color: rgba(140, 150, 220, 0.5);
+    background: rgba(140, 150, 220, 0.1);
+    outline: none;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.foot {
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    color: var(--muted);
+    opacity: 0.7;
+}
+
+.foot span {
+    color: var(--cyber);
+}
+
+/* ── responsive ── */
+@media (max-width: 760px) {
+
+    .crew,
+    .facts {
+        grid-template-columns: 1fr;
+    }
+
+    .fact+.fact {
+        border-left: 0;
+        border-top: 1px solid var(--border);
+    }
+
+    .sched {
+        padding: 22px 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    .wrap {
+        padding: 44px 20px 70px;
+    }
+
+    .bracket {
+        width: 40px;
+        height: 40px;
+    }
+
+    .bracket.tl,
+    .bracket.tr {
+        top: 18px;
+    }
+
+    .bracket.bl,
+    .bracket.br {
+        bottom: 18px;
+    }
+
+    .bracket.tl,
+    .bracket.bl {
+        left: 18px;
+    }
+
+    .bracket.tr,
+    .bracket.br {
+        right: 18px;
+    }
+}
+
+/* ── reduced motion: everything just appears ── */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-delay: 0s !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
