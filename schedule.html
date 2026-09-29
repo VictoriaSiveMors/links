@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Schedule // VSM</title>
+
+    <link rel="icon" href="Images/vsm.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="Images/vsm.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@700;900&family=Rajdhani:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="Styles/shared.css">
+    <link rel="stylesheet" href="Styles/schedule.css">
+
+    <meta name="theme-color" content="#0b0c14">
+    <meta name="description" content="VSM stream schedule — who is live and when.">
+
+    <meta property="og:title" content="Schedule // VSM">
+    <meta property="og:description" content="VSM stream schedule — who is live and when.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://victoriasivemors.github.io/links/Images/vsm.png">
+</head>
+
+<body>
+
+    <div id="cursor"></div>
+    <div id="cursorRing"></div>
+
+    <canvas id="bg"></canvas>
+    <div class="vignette"></div>
+
+    <header class="topbar">
+        <a class="brand" href="main.html" aria-label="VSM home">
+            VSM
+            <span class="brand-dots" aria-hidden="true">
+                <i class="c"></i><i class="s"></i><i class="a"></i><i class="l"></i>
+            </span>
+        </a>
+
+        <nav class="nav" aria-label="Main">
+            <a href="about.html">About</a>
+            <a href="schedule.html" class="active">Schedule</a>
+            <a href="secrets.html" class="secret"><i class="fa-solid fa-lock"></i>Secrets</a>
+        </nav>
+
+        <a class="ttv-btn" href="https://www.twitch.tv/victorasivemors" target="_blank" rel="noopener">
+            <i class="fa-brands fa-twitch"></i> VSM
+        </a>
+    </header>
+
+    <main class="page">
+        <div class="wrap">
+
+            <header class="head">
+                <div class="eyebrow">// schedule</div>
+                <h1 class="title">Stream schedule</h1>
+                <p class="sub">Live every Friday &amp; Saturday. Times are shown in your local time.</p>
+            </header>
+
+            <div class="ticker">
+                <span class="ticker-prompt">&gt;</span>
+                <span id="ticker-text"></span><span class="ticker-cursor">_</span>
+            </div>
+
+            <div class="filters" id="filters" role="group" aria-label="Filter by member"></div>
+
+            <section class="cal" aria-label="Calendar">
+                <div class="cal-head">
+                    <button class="cal-nav" id="cal-prev" type="button" aria-label="Previous month"><i class="fa-solid fa-chevron-left"></i></button>
+                    <div class="cal-title" id="cal-title">MONTH YEAR</div>
+                    <button class="cal-nav" id="cal-next" type="button" aria-label="Next month"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+
+                <div class="cal-weekdays">
+                    <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                </div>
+
+                <div class="cal-grid" id="cal-grid"><!-- filled by JS --></div>
+
+                <div class="cal-foot">
+                    <span><i class="fa-solid fa-arrow-pointer"></i> Click a day for details</span>
+                    <a href="https://www.twitch.tv/victorasivemors" target="_blank" rel="noopener"><i class="fa-brands fa-twitch"></i> Follow VSM</a>
+                </div>
+            </section>
+            <footer class="page-foot">// vsm · content collective</footer>
+        </div>
+    </main>
+
+    <div class="modal" id="modal" aria-hidden="true">
+        <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-date">
+            <div class="modal-head">
+                <span id="modal-date">—</span>
+                <button id="modal-close" type="button" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
+
+    <div id="curtain" class="intro"></div>
+
+    <script src="Scripts/shared.js" defer></script>
+    <script src="Scripts/schedule.js" defer></script>
+</body>
+
+</html>
