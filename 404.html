@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404 // Kill3rKai</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#020812">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&family=Rajdhani:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <!-- absolute paths so this works from any URL depth -->
+  <link rel="stylesheet" href="Styles/styles.css">
+  <link rel="stylesheet" href="Styles/404.css">
+
+  <link rel="icon" href="Images/clearimage.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="Images/iconfile.png">
+
+  <meta property="og:title" content="Kill3rkai">
+  <meta property="og:description" content="Official Website For Kill3rKai And LillyAI.">
+  <meta property="og:image" content="https://kill3rkai.ai/Images/iconfile.png">
+  <meta property="og:url" content="https://kill3rkai.ai">
+  <meta property="og:type" content="website">
+
+  <script src="Scripts/main.js" defer></script>
+  <script src="Scripts/live.js" defer></script>
+</head>
+
+<body>
+
+  <div id="cursor"></div>
+  <div id="cursorRing"></div>
+
+  <div class="noise"></div>
+  <div class="grid-bg"></div>
+  <div class="glow-orb o1"></div>
+  <div class="glow-orb o2"></div>
+  <div class="glow-orb o3"></div>
+  <div class="corner-deco tl"></div>
+  <div class="corner-deco tr"></div>
+  <div class="corner-deco bl"></div>
+  <div class="corner-deco br"></div>
+
+  <main class="err-wrap">
+
+    <h1 class="err-code" aria-label="Error 404">404</h1>
+    <p class="err-sub">Page not found</p>
+
+    <section class="term" aria-label="Terminal output">
+      <div class="term-bar">
+        <span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span>
+        <span class="term-title">guest@kill3rkai.ai</span>
+      </div>
+      <div class="term-body">
+        <p class="tl" style="--d:0.3s"><span class="prompt">$</span> cd <span class="req-path"></span></p>
+        <p class="tl err" style="--d:1s">bash: cd: <span class="req-path"></span>: No such file or directory</p>
+        <p class="tl" style="--d:1.7s"><span class="prompt">$</span> ls /</p>
+        <p class="tl dim" style="--d:2.3s">main.html &nbsp; about.html &nbsp; schedule.html &nbsp; faq.html &nbsp;
+          goals.html &nbsp; specs.html</p>
+        <p class="tl" style="--d:3s"><span class="prompt">$</span> <span class="term-cursor"></span></p>
+      </div>
+    </section>
+
+    <div class="err-actions">
+      <a class="err-btn" href="/"><i class="fa-solid fa-house"></i> Go home</a>
+      <button class="err-btn" id="back-btn" type="button"><i class="fa-solid fa-arrow-left"></i> Go back</button>
+    </div>
+
+    <p class="err-footer"><span>//</span> KILL3RKAI &nbsp;·&nbsp; <span>2026</span></p>
+
+  </main>
+
+  <script>
+    document.querySelectorAll('.req-path').forEach(function (el) {
+      el.textContent = location.pathname.slice(0, 80);
+    });
+    document.getElementById('back-btn').addEventListener('click', function () {
+      if (history.length > 1) history.back(); else location.href = '/';
+    });
+  </script>
+
+</body>
+
+</html>
