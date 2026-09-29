@@ -1,224 +1,39 @@
-/* ============================================================
-   about.css — VSM about page
-   Same brand tokens, fonts and motifs as index.css (the intro).
-   ============================================================ */
-
 :root {
-    --bg: #0b0c14;
-    --cyber: #4da6ff;
-    --cyber2: #2980d4;
-    --space: #a78bfa;
-    --space2: #7c3aed;
-    --lilly: #ff6eb4;
-    --army: #6b7a4a;
-    --text: #f3f6ff;
-    --muted: #8891b8;
-    --border: rgba(140, 150, 220, 0.18);
     --card: rgba(140, 150, 220, 0.045);
-    --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
+/* this page scrolls (shared.css locks the intro/hub pages) */
+html,
 body {
-    min-height: 100vh;
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Rajdhani', sans-serif;
+    height: auto;
+    min-height: 100%;
     overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.page {
     position: relative;
+    z-index: 10;
+    padding-top: var(--topbar-h);
 }
 
-/* ── custom cursor (shared VSM pattern) ── */
-#cursor,
-#cursorRing {
-    display: none;
+.wrap {
+    width: min(900px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 20px 0 90px;
 }
 
-@media (pointer: fine) {
-
-    body,
-    a,
-    button {
-        cursor: none;
-    }
-
-    #cursor,
-    #cursorRing {
-        display: block;
-    }
-}
-
-#cursor {
-    position: fixed;
-    width: 10px;
-    height: 10px;
-    background: var(--cyber);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 16px var(--cyber);
-    mix-blend-mode: screen;
-}
-
-#cursorRing {
-    position: fixed;
-    width: 36px;
-    height: 36px;
-    border: 1px solid rgba(140, 150, 220, 0.4);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
-}
-
-body.hot #cursorRing {
-    width: 56px;
-    height: 56px;
-    border-color: rgba(140, 150, 220, 0.7);
-}
-
-/* ── background canvas + vignette + brackets ── */
-#bg {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    animation: fadeIn 1.4s ease both;
-}
-
-.vignette {
-    position: fixed;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    background: radial-gradient(ellipse 70% 60% at 50% 50%, transparent 45%, rgba(0, 0, 0, 0.75) 100%);
-}
-
-.bracket {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    z-index: 5;
-    pointer-events: none;
-    opacity: 0;
-    animation: fadeIn 1s ease 0.1s forwards;
-}
-
-.bracket svg {
-    width: 100%;
-    height: 100%;
-}
-
-.bracket.tl {
-    top: 32px;
-    left: 32px;
-}
-
-.bracket.tr {
-    top: 32px;
-    right: 32px;
-    transform: scaleX(-1);
-}
-
-.bracket.bl {
-    bottom: 32px;
-    left: 32px;
-    transform: scaleY(-1);
-}
-
-.bracket.br {
-    bottom: 32px;
-    right: 32px;
-    transform: scale(-1, -1);
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(12px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* load-in used across the page; --d sets the delay */
+/* load-in used across the page; --d sets the delay.
+   +0.7s so it starts after the page-wipe curtain has lifted. */
 .rv {
     opacity: 0;
     animation: fadeUp 0.9s var(--ease) forwards;
-    animation-delay: var(--d, 0s);
-}
-
-/* ── layout ── */
-.wrap {
-    position: relative;
-    z-index: 10;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 56px 28px 90px;
-}
-
-/* ── top bar ── */
-.top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.back {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.75rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.back:hover,
-.back:focus-visible {
-    color: var(--cyber);
-    outline: none;
-}
-
-.mark {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 900;
-    font-size: 1.05rem;
-    letter-spacing: 0.1em;
-    text-shadow: -2px 0 12px rgba(77, 166, 255, 0.45), 2px 0 12px rgba(167, 139, 250, 0.45);
+    animation-delay: calc(var(--d, 0s) + 0.7s);
 }
 
 /* ── hero ── */
 .hero {
-    padding: clamp(56px, 11vh, 110px) 0 44px;
+    padding: clamp(40px, 8vh, 90px) 0 44px;
 }
 
 .eyebrow {
@@ -249,7 +64,7 @@ body.hot #cursorRing {
     opacity: 0.7;
     transform: scaleX(0);
     transform-origin: left;
-    animation: draw 1.2s var(--ease) 0.5s forwards;
+    animation: draw 1.2s var(--ease) 1.2s forwards;
 }
 
 @keyframes draw {
@@ -343,13 +158,29 @@ body.hot #cursorRing {
     border: 1px solid var(--border);
     border-top: 2px solid var(--c);
     padding: 26px 22px 22px;
-    transition: transform 0.3s var(--ease), border-color 0.25s ease, box-shadow 0.3s ease;
+    /* `translate` (not `transform`) so the hover lift isn't overridden
+       by the fade-in animation, which holds `transform` after it ends */
+    transition: translate 0.3s var(--ease), border-color 0.25s ease, box-shadow 0.3s ease;
 }
 
-.card:hover {
-    transform: translateY(-4px);
+.card:hover,
+.card:focus-within {
+    translate: 0 -4px;
     border-color: var(--c);
     box-shadow: 0 12px 36px -14px var(--c);
+}
+
+/* whole card is clickable (opens the member's profile).
+   Sits over the card; the social icons sit above it. */
+.card-link {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.card-link:focus-visible {
+    outline: 2px solid var(--c);
+    outline-offset: -4px;
 }
 
 .avatar {
@@ -401,9 +232,12 @@ body.hot #cursorRing {
 }
 
 .links {
+    position: relative;
+    z-index: 2;
     display: flex;
     gap: 8px;
     margin-top: 18px;
+    width: fit-content;
 }
 
 .links a {
@@ -414,7 +248,6 @@ body.hot #cursorRing {
     justify-content: center;
     border: 1px solid var(--border);
     color: var(--muted);
-    text-decoration: none;
     font-size: 1rem;
     transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
@@ -488,16 +321,21 @@ body.hot #cursorRing {
     color: rgba(243, 246, 255, 0.62);
 }
 
+.btnrow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 22px;
+}
+
 .btn {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    margin-top: 22px;
     padding: 13px 26px;
     border: 1px solid var(--border);
     background: rgba(140, 150, 220, 0.05);
     color: var(--text);
-    text-decoration: none;
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.75rem;
     letter-spacing: 0.25em;
@@ -554,44 +392,143 @@ body.hot #cursorRing {
 
 @media (max-width: 600px) {
     .wrap {
-        padding: 44px 20px 70px;
-    }
-
-    .bracket {
-        width: 40px;
-        height: 40px;
-    }
-
-    .bracket.tl,
-    .bracket.tr {
-        top: 18px;
-    }
-
-    .bracket.bl,
-    .bracket.br {
-        bottom: 18px;
-    }
-
-    .bracket.tl,
-    .bracket.bl {
-        left: 18px;
-    }
-
-    .bracket.tr,
-    .bracket.br {
-        right: 18px;
+        width: calc(100% - 40px);
+        padding-bottom: 70px;
     }
 }
 
-/* ── reduced motion: everything just appears ── */
-@media (prefers-reduced-motion: reduce) {
+/* ============================================================
+   FAQ (native <details>, opens on click, one at a time)
+   ============================================================ */
 
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-delay: 0s !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+html {
+    scroll-behavior: smooth;
+}
+
+/* so jumping to #faq / #crew lands below the fixed top bar */
+.block {
+    scroll-margin-top: calc(var(--topbar-h) + 24px);
+}
+
+/* "Got questions?" link in the hero */
+.faq-jump {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 22px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color 0.2s ease;
+}
+
+.faq-jump i {
+    font-size: 0.7rem;
+    transition: translate 0.25s var(--ease);
+}
+
+.faq-jump:hover {
+    color: var(--cyber);
+}
+
+.faq-jump:hover i {
+    translate: 0 3px;
+}
+
+.faq {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.faq-item {
+    border: 1px solid var(--border);
+    border-left: 2px solid transparent;
+    background: var(--card);
+    transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.faq-item:hover {
+    border-color: rgba(140, 150, 220, 0.35);
+}
+
+.faq-item[open] {
+    border-color: rgba(77, 166, 255, 0.35);
+    border-left-color: var(--cyber);
+    background: rgba(77, 166, 255, 0.05);
+}
+
+.faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 22px;
+    list-style: none;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    line-height: 1.35;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary:focus-visible {
+    outline: 2px solid var(--cyber);
+    outline-offset: -2px;
+}
+
+/* the + turns into a × when open */
+.faq-item summary::after {
+    content: "+";
+    flex-shrink: 0;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: var(--cyber);
+    transition: rotate 0.3s var(--ease);
+}
+
+.faq-item[open] summary::after {
+    rotate: 45deg;
+}
+
+.faq-a {
+    padding: 0 22px 20px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(243, 246, 255, 0.68);
+    animation: faqIn 0.35s var(--ease);
+}
+
+.faq-a p+p {
+    margin-top: 10px;
+}
+
+.faq-a a {
+    color: var(--cyber);
+    border-bottom: 1px solid rgba(77, 166, 255, 0.4);
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.faq-a a:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
+@keyframes faqIn {
+    from {
+        opacity: 0;
+        translate: 0 -6px;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
     }
 }

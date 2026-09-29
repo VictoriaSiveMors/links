@@ -1,11 +1,3 @@
-/* ============================================================
-   shared.js — reused by every inner VSM page:
-   1. Background canvas (grid + stars + corner hexes)
-   2. Custom cursor (ring grows over links/buttons)
-   3. Page-wipe transitions between pages
-      (opt a link out with data-no-transition)
-   ============================================================ */
-
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* ── background canvas ── */
@@ -88,7 +80,7 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
         dot.style.left = e.clientX + "px";
         dot.style.top = e.clientY + "px";
         rx = e.clientX; ry = e.clientY;
-        ring.classList.toggle("hover", !!e.target.closest("a, button"));
+        ring.classList.toggle("hover", !!e.target.closest("a, button, summary, [role='button']"));
     });
     function tick() {
         ring.style.left = rx + "px";
