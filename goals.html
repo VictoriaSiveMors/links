@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Goals // VSM</title>
+
+    <link rel="icon" href="Images/vsm.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="Images/vsm.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="Styles/shared.css">
+    <link rel="stylesheet" href="Styles/goals.css">
+
+    <meta name="theme-color" content="#0b0c14">
+    <meta name="description" content="VSM goals — follower, subscriber and milestone progress for every member.">
+
+    <meta property="og:title" content="Goals // VSM">
+    <meta property="og:description" content="VSM goals — follower, subscriber and milestone progress for every member.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://victoriasivemors.github.io/links/Images/vsm.png">
+</head>
+
+<body>
+
+    <div id="cursor"></div>
+    <div id="cursorRing"></div>
+
+    <canvas id="bg"></canvas>
+    <div class="vignette"></div>
+
+    <!-- ══════════ TOP BAR ══════════ -->
+    <header class="topbar">
+        <a class="brand" href="main.html" aria-label="VSM home">
+            VSM
+            <span class="brand-dots" aria-hidden="true">
+                <i class="c"></i><i class="s"></i><i class="a"></i><i class="l"></i>
+            </span>
+        </a>
+
+        <nav class="nav" aria-label="Main">
+            <a href="main.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="specs.html">Specs</a>
+            <a href="goals.html" class="active">Goals</a>
+            <a href="secrets.html" class="secret"><i class="fa-solid fa-lock"></i>Secrets</a>
+        </nav>
+
+        <a class="ttv-btn" href="https://www.twitch.tv/victorasivemors" target="_blank" rel="noopener">
+            <i class="fa-brands fa-twitch"></i> VSM
+        </a>
+    </header>
+
+    <main class="page">
+        <div class="wrap">
+
+            <header class="head">
+                <div class="eyebrow">// goals</div>
+                <h1 class="title">Goals</h1>
+                <p class="sub">Tracking the crew's progress, one milestone at a time.</p>
+            </header>
+
+            <nav class="jump" aria-label="Jump to a member's goals">
+                <a href="#kill3rkai" style="--c:#4da6ff"><i></i>Kill3rKai</a>
+                <a href="#polaris" style="--c:#a78bfa"><i></i>Polaris</a>
+                <a href="#orion" style="--c:#93a866"><i></i>Orion</a>
+                <a href="#lillyai" style="--c:#ff6eb4"><i></i>LillyAi</a>
+            </nav>
+
+            <!-- the member sections + goal cards are built from the GOALS list in Scripts/goals.js -->
+            <div id="goalsRoot"></div>
+
+            <footer class="page-foot">// vsm · content collective</footer>
+        </div>
+    </main>
+
+    <div id="curtain" class="intro"></div>
+
+    <script src="Scripts/shared.js" defer></script>
+    <script src="Scripts/goals.js" defer></script>
+</body>
+
+</html>

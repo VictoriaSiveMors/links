@@ -1,4 +1,3 @@
-/* the old dot + ring elements are still in every page's HTML — hide them */
 #cursor,
 #cursorRing {
     display: none !important;
@@ -18,8 +17,8 @@ html.vsm-cursor-on * {
     height: 0;
     z-index: 9999;
     pointer-events: none;
-    color: #4da6ff;
-    /* replaced live by cursor.js */
+    color: #f3f6ff;
+    /* VSM white; replaced live by cursor.js with the member colour */
     opacity: 0;
     transition: color 0.3s ease, opacity 0.25s ease;
 }
