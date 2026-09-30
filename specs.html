@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Specs // VSM</title>
+
+    <link rel="icon" href="Images/vsm.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="Images/vsm.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="Styles/shared.css">
+    <link rel="stylesheet" href="Styles/specs.css">
+
+    <meta name="theme-color" content="#0b0c14">
+    <meta name="description" content="What the VSM crew plays and streams on — every member's rig and gear.">
+
+    <meta property="og:title" content="Specs // VSM">
+    <meta property="og:description" content="What the VSM crew plays and streams on — every member's rig and gear.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://victoriasivemors.github.io/links/Images/vsm.png">
+</head>
+
+<body>
+
+    <div id="cursor"></div>
+    <div id="cursorRing"></div>
+
+    <canvas id="bg"></canvas>
+    <div class="vignette"></div>
+
+    <header class="topbar">
+        <a class="brand" href="main.html" aria-label="VSM home">
+            VSM
+            <span class="brand-dots" aria-hidden="true">
+                <i class="c"></i><i class="s"></i><i class="a"></i><i class="l"></i>
+            </span>
+        </a>
+
+        <nav class="nav" aria-label="Main">
+            <a href="main.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="specs.html" class="active">Specs</a>
+            <a href="secrets.html" class="secret"><i class="fa-solid fa-lock"></i>Secrets</a>
+        </nav>
+
+        <a class="ttv-btn" href="https://www.twitch.tv/victorasivemors" target="_blank" rel="noopener">
+            <i class="fa-brands fa-twitch"></i> VSM
+        </a>
+    </header>
+
+    <main class="page">
+        <div class="wrap">
+
+            <header class="head">
+                <div class="eyebrow">// specs</div>
+                <h1 class="title">Rigs &amp; gear</h1>
+                <p class="sub">What the crew plays and streams on.</p>
+            </header>
+
+            <nav class="jump" aria-label="Jump to a member's rig">
+                <a href="#kill3rkai" style="--c:#4da6ff"><i></i>Kill3rKai</a>
+                <a href="#polaris" style="--c:#a78bfa"><i></i>Polaris</a>
+                <a href="#orion" style="--c:#93a866"><i></i>Orion</a>
+                <a href="#lillyai" style="--c:#ff6eb4"><i></i>LillyAi</a>
+            </nav>
+
+            <section class="rig" id="kill3rkai" style="--c:#4da6ff; --rgb:77,166,255; --i:0">
+                <div class="rig-head">
+                    <div class="rig-av"><img src="Images/kill3rkai.png" alt="Kill3rKai logo"></div>
+                    <div>
+                        <h2 class="rig-name">Kill3rKai</h2>
+                        <div class="rig-tag">// stream rig · main pc</div>
+                    </div>
+                    <a class="rig-link" href="members/kill3rkai.html">Profile <i
+                            class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <h3 class="gt">Hardware</h3>
+                <div class="specs-grid">
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-microchip"></i></span>
+                        <div><span class="k">CPU</span><span class="v">Ryzen 9 5900X</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-server"></i></span>
+                        <div><span class="k">Motherboard</span><span class="v">ROG Crosshair VIII Dark Hero</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-gamepad"></i></span>
+                        <div><span class="k">GPU</span><span class="v">RTX 4080</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-memory"></i></span>
+                        <div><span class="k">RAM</span><span class="v">32GB</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-hard-drive"></i></span>
+                        <div><span class="k">Storage</span><span class="v">2TB NVMe SSDs</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-box"></i></span>
+                        <div><span class="k">Case</span><span class="v">Corsair 5000D Airflow</span></div>
+                    </div>
+                </div>
+
+                <h3 class="gt">Setup</h3>
+                <div class="specs-grid">
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-desktop"></i></span>
+                        <div><span class="k">Monitor</span><span class="v">ROG Swift PG279QE 1440p 165Hz</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-headphones"></i></span>
+                        <div><span class="k">Headphones</span><span class="v">Razer Krakens</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-computer-mouse"></i></span>
+                        <div><span class="k">Mouse</span><span class="v">Glorious Model O</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-microphone"></i></span>
+                        <div><span class="k">Microphone</span><span class="v">Elgato Wave 3</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-table-cells"></i></span>
+                        <div><span class="k">Stream Deck</span><span class="v">Elgato Stream Deck</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-sliders"></i></span>
+                        <div><span class="k">Mixer</span><span class="v">WaveLink</span></div>
+                    </div>
+                </div>
+                </section>
+
+            <section class="rig" id="polaris" style="--c:#a78bfa; --rgb:167,139,250; --i:1">
+                <div class="rig-head">
+                    <div class="rig-av"><img src="Images/polaris.png" alt="Polaris logo"></div>
+                    <div>
+                        <h2 class="rig-name">Polaris</h2>
+                        <div class="rig-tag">// stream rig · main pc</div>
+                    </div>
+                    <a class="rig-link" href="members/polaris.html">Profile <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <h3 class="gt">Hardware</h3>
+                <div class="specs-grid">
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-microchip"></i></span>
+                        <div><span class="k">CPU</span><span class="v">Ryzen 5 5500</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-server"></i></span>
+                        <div><span class="k">Motherboard</span><span class="v">MSI A520M-A PRO</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-gamepad"></i></span>
+                        <div><span class="k">GPU</span><span class="v">Maxsun Arc B580</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-memory"></i></span>
+                        <div><span class="k">RAM</span><span class="v">16GB</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-hard-drive"></i></span>
+                        <div><span class="k">Storage</span><span class="v">1TB NVMe SSD</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-box"></i></span>
+                        <div><span class="k">Case</span><span class="v">Antec AX20 Elite</span></div>
+                    </div>
+                </div>
+
+                <h3 class="gt">Setup</h3>
+                <div class="specs-grid">
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-desktop"></i></span>
+                        <div><span class="k">Monitor</span><span class="v">Samsung G5 G53F</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-headphones"></i></span>
+                        <div><span class="k">Headphones</span><span class="v">KZ EDX Pros</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-computer-mouse"></i></span>
+                        <div><span class="k">Mouse</span><span class="v">Logitech G502 Hero</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-microphone"></i></span>
+                        <div><span class="k">Mic</span><span class="v">Elgato Wave 1</span></div>
+                    </div>
+                    <div class="spec pending"><span class="ico"><i class="fa-solid fa-video"></i></span>
+                        <div><span class="k">Camera</span><span class="v">Specs Incoming</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-sliders"></i></span>
+                        <div><span class="k">Mixer</span><span class="v">WaveLink</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="rig" id="orion" style="--c:#93a866; --rgb:147,168,102; --i:2">
+                <div class="rig-head">
+                    <div class="rig-av"><img src="Images/orion.png" alt="Orion logo"></div>
+                    <div>
+                        <h2 class="rig-name">Orion</h2>
+                        <div class="rig-tag">// stream rig · main pc</div>
+                    </div>
+                    <a class="rig-link" href="members/orion.html">Profile <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <h3 class="gt">Hardware</h3>
+                <div class="specs-grid">
+                    <div class="spec pending"><span class="ico"><i class="fa-solid fa-microchip"></i></span>
+                        <div><span class="k">CPU</span><span class="v">Specs incoming</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-gamepad"></i></span>
+                        <div><span class="k">GPU</span><span class="v">RTX 2070</span></div>
+                    </div>
+                    <div class="spec pending"><span class="ico"><i class="fa-solid fa-memory"></i></span>
+                        <div><span class="k">RAM</span><span class="v">Specs incoming</span></div>
+                    </div>
+                    <div class="spec pending"><span class="ico"><i class="fa-solid fa-hard-drive"></i></span>
+                        <div><span class="k">Storage</span><span class="v">Specs incoming</span></div>
+                    </div>
+                </div>
+
+                <h3 class="gt">Setup</h3>
+                <div class="specs-grid">
+                    <div class="spec pending"><span class="ico"><i class="fa-solid fa-desktop"></i></span>
+                        <div><span class="k">Monitor</span><span class="v">Specs incoming</span></div>
+                    </div>
+                    <div class="spec pending"><span class="ico"><i class="fa-solid fa-microphone"></i></span>
+                        <div><span class="k">Microphone</span><span class="v">Specs incoming</span></div>
+                    </div>
+                    <div class="spec pending"><span class="ico"><i class="fa-solid fa-headphones"></i></span>
+                        <div><span class="k">Headphones</span><span class="v">Specs incoming</span></div>
+                    </div>
+                    <div class="spec pending"><span class="ico"><i class="fa-solid fa-computer-mouse"></i></span>
+                        <div><span class="k">Mouse</span><span class="v">Specs incoming</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="rig" id="lillyai" style="--c:#ff6eb4; --rgb:255,110,180; --i:3">
+                <div class="rig-head">
+                    <div class="rig-av"><img src="Images/lilly.png" alt="LillyAi logo"></div>
+                    <div>
+                        <h2 class="rig-name">LillyAI</h2>
+                        <div class="rig-tag">// gaming rig · not technical server</div>
+                    </div>
+                    <a class="rig-link" href="members/lillyai.html">Profile <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <h3 class="gt">Hardware</h3>
+                <div class="specs-grid">
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-microchip"></i></span>
+                        <div><span class="k">CPU</span><span class="v">Ryzen 9 5900X</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-server"></i></span>
+                        <div><span class="k">Motherboard</span><span class="v">ROG Crosshair VIII Dark Hero</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-gamepad"></i></span>
+                        <div><span class="k">GPU</span><span class="v">RTX 4080</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-memory"></i></span>
+                        <div><span class="k">RAM</span><span class="v">32GB</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-hard-drive"></i></span>
+                        <div><span class="k">Storage</span><span class="v">4TB NVMe SSDs</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-bolt"></i></span>
+                        <div><span class="k">PSU</span><span class="v">1000W Corsair PSU</span></div>
+                    </div>
+                </div>
+
+                <h3 class="gt">Setup</h3>
+                <div class="specs-grid">
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-desktop"></i></span>
+                        <div><span class="k">Monitor</span><span class="v">ROG Swift PG279QE 1440p 165Hz</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-headphones"></i></span>
+                        <div><span class="k">Headphones</span><span class="v">Wavelink Aux 2</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-computer-mouse"></i></span>
+                        <div><span class="k">Mouse</span><span class="v">Virtual</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-microphone"></i></span>
+                        <div><span class="k">Microphone</span><span class="v">Elevenlabs</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-video"></i></span>
+                        <div><span class="k">Camera</span><span class="v">Virtual VTuber model</span></div>
+                    </div>
+                    <div class="spec"><span class="ico"><i class="fa-solid fa-sliders"></i></span>
+                        <div><span class="k">Mixer</span><span class="v">WaveLink</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="page-foot">// vsm · content collective</footer>
+        </div>
+    </main>
+
+    <div id="curtain" class="intro"></div>
+
+    <script src="Scripts/shared.js" defer></script>
+</body>
+
+</html>

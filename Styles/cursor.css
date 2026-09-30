@@ -1,0 +1,132 @@
+/* the old dot + ring elements are still in every page's HTML — hide them */
+#cursor,
+#cursorRing {
+    display: none !important;
+}
+
+/* hide the normal arrow, but only once the new cursor is running (no JS = normal cursor) */
+html.vsm-cursor-on,
+html.vsm-cursor-on * {
+    cursor: none !important;
+}
+
+#vsm-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    z-index: 9999;
+    pointer-events: none;
+    color: #4da6ff;
+    /* replaced live by cursor.js */
+    opacity: 0;
+    transition: color 0.3s ease, opacity 0.25s ease;
+}
+
+#vsm-cursor.ready {
+    opacity: 1;
+}
+
+/* ── the reticle (four ticks) ── */
+#vsm-cursor .vc-reticle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 48px;
+    height: 48px;
+    margin: -24px 0 0 -24px;
+    will-change: transform;
+}
+
+#vsm-cursor .vc-reticle svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    filter: drop-shadow(0 0 4px currentColor);
+}
+
+#vsm-cursor .vc-ticks {
+    transform-origin: 0 0;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#vsm-cursor .vc-ticks line {
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+}
+
+/* ── the dot (exactly under the pointer) ── */
+#vsm-cursor .vc-dot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 12px currentColor;
+    will-change: transform;
+    transition: width 0.2s ease, height 0.2s ease;
+}
+
+/* over something clickable: ticks spread + turn into an X, dot shrinks */
+#vsm-cursor.is-hover .vc-ticks {
+    transform: rotate(45deg) scale(1.3);
+}
+
+#vsm-cursor.is-hover .vc-dot {
+    width: 4px;
+    height: 4px;
+}
+
+/* mouse held down: ticks squeeze in */
+#vsm-cursor.is-down .vc-ticks {
+    transform: scale(0.72);
+}
+
+#vsm-cursor.is-hover.is-down .vc-ticks {
+    transform: rotate(45deg) scale(0.9);
+}
+
+/* ── click pulse (an expanding ring, added/removed by cursor.js) ── */
+#vsm-cursor .vc-pulse {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    animation: vcPulse 0.55s ease-out forwards;
+}
+
+@keyframes vcPulse {
+    from {
+        transform: scale(0.4);
+        opacity: 0.75;
+    }
+
+    to {
+        transform: scale(2.6);
+        opacity: 0;
+    }
+}
+
+/* reduced motion: plain dot, no spinning ticks, no pulse */
+@media (prefers-reduced-motion: reduce) {
+    #vsm-cursor .vc-ticks {
+        transition: none;
+    }
+
+    #vsm-cursor.is-hover .vc-ticks,
+    #vsm-cursor.is-down .vc-ticks,
+    #vsm-cursor.is-hover.is-down .vc-ticks {
+        transform: none;
+    }
+
+    #vsm-cursor .vc-pulse {
+        display: none;
+    }
+}

@@ -69,26 +69,15 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
     window.addEventListener("resize", draw);
 })();
 
-/* ── custom cursor ── */
+/* ── custom cursor: lives in cursor.js (+ cursor.css). Loaded from here so every page gets it. ── */
 (function () {
-    const dot = document.getElementById("cursor");
-    const ring = document.getElementById("cursorRing");
-    if (!dot || !ring || window.matchMedia("(pointer: coarse)").matches) return;
-
-    let rx = 0, ry = 0;
-    window.addEventListener("mousemove", (e) => {
-        dot.style.left = e.clientX + "px";
-        dot.style.top = e.clientY + "px";
-        rx = e.clientX; ry = e.clientY;
-        ring.classList.toggle("hover", !!e.target.closest("a, button, summary, [role='button']"));
-    });
-    function tick() {
-        ring.style.left = rx + "px";
-        ring.style.top = ry + "px";
-        requestAnimationFrame(tick);
-    }
-    tick();
+    const me = document.currentScript;
+    if (!me || !me.src) return;
+    const s = document.createElement("script");
+    s.src = new URL("cursor.js", me.src).href;
+    document.head.appendChild(s);
 })();
+
 
 /* ── page transitions ── */
 (function () {
