@@ -5,7 +5,7 @@
     // mouse-type devices only
     if (!window.matchMedia("(pointer: fine)").matches) return;
 
-    const DEFAULT_COLOR = "#4da6ff";
+    const DEFAULT_COLOR = "#f3f6ff"; // VSM white (all the colours combined)
     const HOVER_SELECTOR = 'a, button, summary, [role="button"], .redacted';
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const LAG = reduceMotion ? 1 : 0.22; // 1 = no lag
