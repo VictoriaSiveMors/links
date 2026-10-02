@@ -14,7 +14,7 @@ const GOALS = [
     { member: "polaris", name: "YouTube Subs", note: "YouTube subscribers", icon: "fa-brands fa-youtube", current: 142, target: 150 },
 
     /* ── Orion ── */
-    { member: "orion", name: "Followers", note: "Twitch followers", icon: "fa-users", current: 4, target: 13 },
+    { member: "orion", name: "Followers", note: "Twitch followers", icon: "fa-users", current: 4, target: 10 },
 
     /* ── LillyAI ── */
     { member: "lillyai", name: "Website", note: "get kai to make me a website of my own...", icon: "fa-globe", current: 0, target: 100, href: "requirements.html", cta: "View requirements" },
