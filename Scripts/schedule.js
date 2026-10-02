@@ -42,7 +42,7 @@ const scheduleData = [
   { member: "polaris", game: "Warthunder", date: "2026-09-19", time: "24:00", duration: 120, note: "Warthunder Task Run!" },
   { member: "polaris", game: "BREAK DAY",  date: "2026-09-25", time: "24:00", off: true,     note: "No stream today" },
   { member: "polaris", game: "Minecraft",  date: "2026-09-26", time: "24:00", duration: 120, note: "VSM takes on my Minecraft challenge!" },
-  { member: "polaris", game: "WARTHUNDER", date: "2026-10-02", time: "24:00", duration: 120, note: "Warthunder Grind!" },
+  { member: "polaris", game: "Driving Rogue", date: "2026-10-02", time: "24:00", duration: 120, note: "Driving Rouge!" },
   { member: "polaris", game: "WARTHUNDER", date: "2026-10-03", time: "24:00", duration: 120, note: "Warthunder Grind!" },
 
   //  Orion (midnight South Africa time = 23:00 Irish time) 
