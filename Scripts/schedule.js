@@ -41,7 +41,7 @@ const scheduleData = [
   { member: "kill3rkai", game: "TBD", date: "2026-10-17", time: "23:00", duration: 180, note: "TBD" },
   { member: "kill3rkai", game: "TBD", date: "2026-10-23", time: "23:00", duration: 180, note: "TBD" },
   { member: "kill3rkai", game: "TBD", date: "2026-10-24", time: "23:00", duration: 180, note: "TBD" },
-  { member: "kill3rkai", game: "TBD", date: "2026-10-30", time: "23:00", duration: 180, note: "TBD" },
+  { member: "kill3rkai", game: "No Stream Day", date: "2026-10-30", time: "23:00", duration: 180, off: true, note: "No Stream Day" },
   { member: "kill3rkai", game: "No Stream Day", date: "2026-10-31", time: "23:00", duration: 180, off: true, note: "No Stream Day" },
 
   //  Polaris (midnight South Africa time = 23:00 Irish time) 
@@ -58,7 +58,7 @@ const scheduleData = [
   { member: "polaris", game: "TBD", date: "2026-10-23", time: "24:00", duration: 180, note: "TBD" },
   { member: "polaris", game: "TBD", date: "2026-10-24", time: "24:00", duration: 180, note: "TBD" },
   { member: "polaris", game: "TBD", date: "2026-10-30", time: "24:00", duration: 180, note: "TBD" },
-  { member: "polaris", game: "No Stream Day", date: "2026-10-31", time: "24:00", duration: 180, off: true, note: "No Stream Day" },
+    { member: "polaris", game: "TBD", date: "2026-10-31", time: "24:00", duration: 180, note: "TBD" },
 
   //  Orion (midnight South Africa time = 23:00 Irish time) 
   { member: "orion", game: "WARDOGS", date: "2026-09-18", time: "24:00", duration: 180, note: "WARDOGS WEEKEND!" },
@@ -74,7 +74,7 @@ const scheduleData = [
   { member: "orion", game: "TBD", date: "2026-10-23", time: "24:00", duration: 180, note: "TBD" },
   { member: "orion", game: "TBD", date: "2026-10-24", time: "24:00", duration: 180, note: "TBD" },
   { member: "orion", game: "TBD", date: "2026-10-30", time: "24:00", duration: 180, note: "TBD" },
-  { member: "orion", game: "No Stream Day", date: "2026-10-31", time: "24:00", duration: 180, off: true, note: "No Stream Day" },
+  { member: "orion", game: "TBD", date: "2026-10-31", time: "24:00", duration: 180, note: "TBD" },
 
   { member: "lillyai", game: "Minecraft", date: "2026-09-26", time: "23:00", duration: 180, note: "Taking on Polaris's Minecraft challenge!" },
 ];
