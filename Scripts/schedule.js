@@ -56,7 +56,7 @@ const scheduleData = [
   { member: "polaris", game: "PHASMOPHOBIA", date: "2026-10-23", time: "24:00", duration: 180, note: "Spooky Season!" },
   { member: "polaris", game: "PHASMOPHOBIA", date: "2026-10-24", time: "24:00", duration: 180, note: "Spooky Season!" },
   { member: "polaris", game: "VALORANT", date: "2026-10-16", time: "24:00", duration: 180, note: "COMP GRIND" },
-  { member: "polaris", game: "VALORANT", date: "2026-10-17", time: "24:00", duration: 180, note: "COMP GRIND" },
+  { member: "polaris", game: "WARTHUNDER", date: "2026-10-17", time: "24:00", duration: 180, note: "WARTHUNDER WEEKEND" },
   { member: "polaris", game: "TBD", date: "2026-10-30", time: "24:00", duration: 180, note: "TBD" },
     { member: "polaris", game: "TBD", date: "2026-10-31", time: "24:00", duration: 180, note: "TBD" },
 
