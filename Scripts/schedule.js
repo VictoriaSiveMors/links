@@ -102,7 +102,6 @@ const scheduleData = [
   { member: "orion", game: "VALORANT", date: "2026-10-17", time: "24:00", duration: 180, note: "COMP GRIND" },
   { member: "orion", game: "No Stream Day", date: "2026-10-30", time: "24:00", duration: 180, off: true, note: "No Stream" },
   { member: "orion", game: "No Stream Day", date: "2026-10-31", time: "24:00", duration: 180, off: true, note: "No Stream" },
-  { member: "orion", game: "Call OF Duty: Modern Warfare 4", date: "2026-11-07", time: "24:00", duration: 180, note: "Warthunder Stream" },
   { member: "orion", game: "Warthunder", date: "2026-11-06", time: "24:00", duration: 180, note: "Warthunder Stream" },
   { member: "orion", game: "Warthunder", date: "2026-11-07", time: "24:00", duration: 180, note: "Warthunder Stream" },
   { member: "orion", game: "Warthunder", date: "2026-11-13", time: "24:00", duration: 180, note: "Warthunder Stream" },
