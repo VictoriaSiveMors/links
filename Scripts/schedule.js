@@ -48,7 +48,7 @@ const scheduleData = [
   { member: "kill3rkai", game: "CALL OF DUTY: MODERN WARFARE 4", date: "2026-11-13", time: "23:00", duration: 180, note: "CoD Footage Day" },
   { member: "kill3rkai", game: "Fortnite", date: "2026-11-14", time: "23:00", duration: 180, note: "Fortnite weekend" },
   { member: "kill3rkai", game: "Grand Theft Auto VI", date: "2026-11-20", time: "23:00", duration: 180, note: "Grand Theft Auto VI Stream" },
-  { member: "kill3rkai", game: "Grand Theft Auto VI", date: "2026-11-21", time: "23:00", duration: 180, note: "Also A CoD Footage Day" },
+  { member: "kill3rkai", game: "Grand Theft Auto VI", date: "2026-11-21", time: "23:00", duration: 180, note: "Also A GTA 6 Stream" },
   { member: "kill3rkai", game: "CALL OF DUTY: MODERN WARFARE 4", date: "2026-11-27", time: "23:00", duration: 180, note: "CoD Footage Day" },
   { member: "kill3rkai", game: "CALL OF DUTY: MODERN WARFARE 4", date: "2026-11-28", time: "23:00", duration: 180, note: "Also A CoD Footage Day" },
   { member: "kill3rkai", game: "CALL OF DUTY: MODERN WARFARE 4", date: "2026-12-04", time: "23:00", duration: 180, note: "CoD Footage Day" },
